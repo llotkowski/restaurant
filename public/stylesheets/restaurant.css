@@ -1,0 +1,307 @@
+body {
+	font-family: tahoma, helvetica, arial, sans-serif;
+	font-size: 11px;
+	text-align: center;
+	background: url(../images/restaurant/page_bg.jpg);
+	color: #6f6f6f;
+}
+
+html, body, #wrapper, h1, #nav-top, #nav-top li, #nav-left, #nav-top li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+th, td {
+	font-size: 11px;
+}
+
+img { border: 0; }
+
+#wrapper {
+	margin: 16px auto;
+	text-align: left;
+	width: 750px;
+	position: relative;
+}
+
+h1, h2, h3 {
+	font-size: 10px;
+}
+
+
+h1 {
+	margin: 0;
+	padding: 0;
+}
+
+h2 {
+	margin: 0 0 0 0;
+	padding: 0;
+}
+
+h3 {
+	padding: 4px 0 0 0;
+}
+
+p {
+	margin: 1em 0;
+	padding: 0;
+}
+
+.block {
+	display: block;
+}
+
+.clear {
+	clear: both;
+	height: 1px;
+	padding-top: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+	font-size: 1px;
+	line-height: 1px;
+}
+
+* html .clear {
+	margin-top: -5px;
+	margin-bottom: -4px;
+}
+
+.left {
+	float: left;
+	margin: 1px 8px 0px 0px;
+}
+
+.softright {
+	text-align: right;
+}
+
+.readmore {
+	text-align: right;
+}
+
+/* ***** */
+
+body {
+	background: #5D1F1F;
+	color: #251200;
+}
+
+#wrapper {
+	width: 780px;
+	background: #AD803D;
+}
+
+a {
+	color: #422100;
+}
+
+a:hover {
+	color: #231201;
+}
+
+#body #events .readmore a, #body .readmore a, #hotstuff .readmore a {
+	color: #e2c3a5;
+	text-decoration: none;
+}
+
+#body .readmore a:hover, #body #events .readmore a:hover, #hotstuff .readmore a:hover {
+	text-decoration: underline;
+}
+
+/* header */
+
+#header {
+	background: url(../images/restaurant/header.jpg) top left no-repeat;
+	height: 299px; width: 100%;
+	margin: 0;
+	border-bottom: 1px solid white;
+}
+
+#header h1 {
+	text-align: right;
+}
+
+#header #nav {
+	font-size: 9px;
+	text-align: center;
+	background: #170E01;
+	color: #D4A66F;
+	font-weight: bold;
+	width: 489px;
+	position: absolute;
+	top: 86px;
+	left: 291px;
+	padding: 9px 0 10px 0;
+	margin: 0;
+	border-top: 1px solid white;
+	border-bottom: 1px solid white;
+}
+
+#header #nav li {
+	display: inline;
+}
+
+#header #nav a {
+	color: #D4A66F;
+	text-decoration: none;
+}
+
+#header #nav a:hover {
+	color: #fff;
+	text-decoration: underline;
+}
+
+#header #welcome {
+  position: absolute;
+  top: 122px; left: 291px;
+  width: 470px; height: 173px;
+  overflow: auto;
+}
+
+#header #welcome h2 {
+	padding: 0.2em 0 0 0;
+	margin: 0;
+	line-height: 1;
+}
+
+#header #welcome p {
+	margin: 0.5em 0;
+}
+
+* html #header #welcome p {
+	margin: 0.5em 0;
+}
+
+#header #welcome p {
+	padding-left: 2em;
+}
+
+/* body */
+
+#body {
+	position: relative;
+	color: #251200;
+	background: url(../images/restaurant/boy_bg.gif) repeat-y;
+}
+
+#body #hevents {
+	position: absolute;
+	top: 0; left: 291px;
+    border-right: 1px solid white;
+}
+
+* html #body #hevents {
+	position: relative;
+	top: 0; left: 0;
+	margin-top: -32px;
+}
+
+#body #foto {
+	float: left;
+	width: 236px;
+    height: 285px;
+	margin: -30px 0px;
+	display: inline;
+    background: url(../images/restaurant/photo.jpg) no-repeat;
+}
+
+#body #specials {
+	float: left;
+	width: 288px;
+	margin: 0px 2px 0px 2px;
+	display: inline;
+    border-right: 1px solid white;
+}
+
+#body #events {
+	float: left;
+	width: 234px;
+    height: 258px;
+	margin-left: 0px;
+	display: inline;
+    padding: 0px 5px 0px 10px;
+    background-color: #96652B;
+    border-right: 1px solid white;
+}
+
+#body .imagebox {
+	padding: 2px 8px 2px 100px;
+	margin: 2px 0;
+	background: #9b6f2d 4px no-repeat;
+}
+
+#body h3, #body p {
+	margin: 0 0 0.2em 0;
+}
+
+#body #events a {
+	color: #ce9b5e;
+}
+
+#body #events a:hover {
+	color: #fff;
+}
+
+#events .readmore {
+	margin-bottom: 0;
+}
+
+/* hotstuff */
+
+#hotstuff {
+	width: 100%;
+	background: url(images/restaurant/hotstuff_bg.gif) repeat-y;
+}
+
+* html #hotstuff {
+	padding-bottom: 10px;
+}
+
+#hotstuff h2 {
+	background: #3b2000;
+	border-top: 1px solid #fff;
+}
+
+* html #hotstuff h2 {
+	width: 100%;
+}
+
+#hotstuff .imagebox {
+	padding: 2px 8px 2px 103px;
+	margin: 2px 0;
+	background: 4px no-repeat;
+	float: left;
+	width: 200px;
+}
+
+#hotstuff #hot-one   { width: 180px; }
+#hotstuff #hot-two   { width: 140px; margin-left: 2px; }
+#hotstuff #hot-three { width: 120px; margin-left: 2px; }
+
+* html #hotstuff #hot-one   { width: 290px; w\idth: 180px; }
+* html #hotstuff #hot-two   { width: 250px; w\idth: 140px; }
+* html #hotstuff #hot-three { width: 230px; w\idth: 120px; }
+
+#hotstuff h3, #hotstuff p {
+	margin: 0 0 0.2em 0;
+}
+
+* html #spacer {
+	margin-top: 8px;
+}
+
+/* footer */
+
+#footer {
+	padding-bottom: 2em;
+}
+
+#footer, #footer a {
+	color: #986D6D;
+}
+
+#footer a:hover {
+	color: #fff;
+}
