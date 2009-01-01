@@ -12,38 +12,43 @@
 <body>
     <div id="wrapper">
       <div id="header">
-        <h1><a href="http://www.freewebsitetemplates.com"><img src="../images/restaurant/logo.gif" alt="Chinese Cuisine" /></a></h1>
+        <h1><a href="http://www.freewebsitetemplates.com"><img src="../../images/restaurant/logo.gif" alt="Chinese Cuisine" /></a></h1>
         <ul id="nav">
-          <li><a href="http://www.freewebsitetemplates.com">HOME</a> &nbsp;|&nbsp; </li>
-          <li><a href="http://www.freewebsitetemplates.com">RESTAURANT</a> &nbsp;|&nbsp; </li>
-          <li><a href="http://www.freewebsitetemplates.com">MENU</a> &nbsp;|&nbsp; </li>
-          <li><a href="http://www.freewebsitetemplates.com">REZERWACJA</a> &nbsp;|&nbsp; </li>
+          <%#*<li><a href="/restaurant/home">HOME</a> &nbsp;|&nbsp; </li>%>
+          <li><%= link_to 'HOME', {:controller => "restaurants", :action => "home", :id => @restaurant.id} %>  &nbsp;|&nbsp;</li>
+          <%#*<li><a href="http://www.freewebsitetemplates.com"></a> &nbsp;|&nbsp; </li>%>
+          <li><a href="/restaurant/menu">MENU</a> &nbsp;|&nbsp; </li>
+          <li><a href="/restaurant/book">REZERWACJA</a> &nbsp;|&nbsp; </li>
           <%#*<li><a href="http://www.freewebsitetemplates.com">EVENTS</a> &nbsp;|&nbsp; </li>%>
-          <li><a href="http://www.freewebsitetemplates.com">KONTAKT</a></li>
+          <%#*<li><a href="/restaurant/contact">KONTAKT</a></li>%>
+          <li><%= link_to 'KONTAKT', {:controller => "restaurants", :action => "contact", :id => @restaurant.id} %></li>
         </ul><!-- end nav -->
         <div id="welcome">
-          <h2><img src="../images/restaurant/title_welcome.gif" alt="Welcome to our Restaurant" /></h2>
-          <p>Some demo text goes here. Some demo text goes here. Some demo text goes here. Some demo text goes here. Some demo text goes here. Some demo text goes here. Some demo text goes here. Some demo text goes here. Some demo text goes here. Some demo text goes here. Some demo text goes here. Some demo text goes here. Some demo text goes here. Some demo text goes here. Some demo text goes here. Some demo text goes here. Some demo text goes here. Some demo text goes here. Some demo text goes here. Some demo text goes here. Some demo text goes here. Some demo text goes here. Some demo text goes here. Some demo text goes here. Some demo text goes here.</p>
+          <h2><img src="../../images/restaurant/title_welcome.gif" alt="Welcome to our Restaurant" /></h2>
+          <p>
+            Opis
+          </p>
         </div><!-- end welcome -->
       </div><!-- end header -->
       <div id="body">
 
           <%= yield  %>
 
-      </div><!-- end body -->
+     <div class="clear" id="spacer"></div>
+     </div><!-- end body -->
       <div id="hotstuff">
-        <h2><img src="../images/restaurant/title_hot.gif" alt="Today's Hot" /></h2>
-        <div style="background-image: url(../images/restaurant/picture_4.jpg);" id="hot-one" class="imagebox">
+        <h2><img src="../../images/restaurant/title_hot.gif" alt="Today's Hot" /></h2>
+        <div style="background-image: url(../../images/restaurant/picture_4.jpg);" id="hot-one" class="imagebox">
           <h3><a href="http://www.freewebsitetemplates.com">Today's Hot Item Name</a></h3>
           <p>Some demo text goes here. Some demo text goes here. Some demo text goes here.</p>
           <p class="readmore"><a href="http://www.freewebsitetemplates.com">... more</a></p>
         </div>
-        <div style="background-image: url(../images/restaurant/picture_5.jpg);" id="hot-two" class="imagebox">
+        <div style="background-image: url(../../images/restaurant/picture_5.jpg);" id="hot-two" class="imagebox">
           <h3><a href="http://www.freewebsitetemplates.com">Today's Hot Item Name</a></h3>
           <p>Some demo text goes here. Some demo text goes here. Some demo text goes here.</p>
           <p class="readmore"><a href="http://www.freewebsitetemplates.com">... more</a></p>
         </div>
-        <div style="background-image: url(../images/restaurant/picture_6.jpg);" id="hot-three" class="imagebox">
+        <div style="background-image: url(../../images/restaurant/picture_6.jpg);" id="hot-three" class="imagebox">
           <h3><a href="http://www.freewebsitetemplates.com">Today's Hot Item Name</a></h3>
           <p>Some demo text goes here. Some demo text goes here.</p>
           <p class="readmore"><a href="http://www.freewebsitetemplates.com">... more</a></p>
