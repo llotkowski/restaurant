@@ -27,10 +27,15 @@ a:hover {
 	clear: both;
 }
 
+.map { 
+       color: black;
+       text-align: left;
+}
+
 body {
 	background: #2D0202;
 	text-align: center;
-	font: 11px arial, sans-serif;
+	font: 13px arial, sans-serif;
 	color: #F4C389;
 	padding-bottom: 10px;
 }
@@ -114,7 +119,7 @@ body {
 
 #body {
   border-top: 1px solid white;
-  padding-top: 20px;
+  padding: 20px;
 }
 #left {
   float: left;

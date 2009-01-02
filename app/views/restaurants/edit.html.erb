@@ -12,16 +12,19 @@
     <%= f.text_area :desc %>
   </p>
   <p>
-    x<br />
-    <%= f.text_field :latitude %>
+    Ulica<br />
+    <%= f.text_field :street %>
   </p>
   <p>
-    y<br />
-    <%= f.text_field :longitude %>
+    Numer<br />
+    <%= f.text_field :number %>
+  </p>
+  <p>
+    Miejsowość<br />
+    <%= f.text_field :city %>
   </p>
 <p>
 
-<%= @map.div(:width => 400, :height => 400) %>
 </p>
   <p>
     <%= f.submit "Update" %>

@@ -10,7 +10,8 @@
 
     <%= GMap.header %>
 
-    <%    if (@map != nil) %>
+    <% if @map.nil? %>
+    <% else %>
      <%= @map.to_html %>
     <%  end    %>
 
@@ -18,20 +19,20 @@
   <body>
   <div id="wrapper">
     <div id="logo">
-      <h1>Food Online</h1>
-      <p>Next Food Network Star</p>
+      <h1>Bistro Ministro</h1>
+      <p>Najlepsza sieć restauracji</p>
     </div>
     <div id="nav">
       <div id="nav-left">
         <ul>
-          <li><a href="http://www.freewebsitetemplates.com">Home</a></li>
-          <li class="orange"><a href="http://www.freewebsitetemplates.com">Contact</a></li>
+          <li><a href="/welcome/main">Strona główna</a></li>
+          <li class="orange"><a href="/welcome/show">Restauracje</a></li>
         </ul>
       </div>
       <div id="nav-right">
         <ul>
-          <li><a href="http://www.freewebsitetemplates.com">About us</a></li>
-          <li><a href="http://www.freewebsitetemplates.com">Menu</a></li>
+          <li><a href="/welcome/about">About us</a></li>
+          <li><a href="/welcome/show">Menu</a></li>
           <li><a href="http://www.freewebsitetemplates.com">Services</a></li>
           <li><a href="http://www.freewebsitetemplates.com">Special offer</a></li>
         </ul>
