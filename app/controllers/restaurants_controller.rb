@@ -1,20 +1,27 @@
 class RestaurantsController < ApplicationController
   # GET /restaurants
   # GET /restaurants.xml
-  def index    
-    @restaurants = Restaurant.find(:all)    
-     
+  def index
+    @restaurants = Restaurant.find(:all)
+
     respond_to do |format|
       format.html { render :layout => 'application' } # index.html.erb
       format.xml  { render :xml => @restaurants }
-    end   
+    end
   end
 
   # GET /restaurants/1
   # GET /restaurants/1.xml
   def show
     @restaurant = Restaurant.find(params[:id])
+    if @restaurant.has_map?
+      @map = GMap.new("map_div")
+      loc = GeoKit::Geocoders::GoogleGeocoder.geocode(@restaurant.address)
 
+      @map.control_init(:large_map => true,:map_type => true)
+      @map.center_zoom_init([loc.lat, loc.lng],4)
+      @map.overlay_init(GMarker.new([loc.lat, loc.lng],:title => @restaurant.name, :info_window => @restaurant.address))
+    end
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @restaurant }
@@ -35,8 +42,23 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/1/edit
   def edit
     @restaurant = Restaurant.find(params[:id])
-    render :layout => 'application'
-    
+    @map = GMap.new("map_div")
+    loc = @restaurant.location
+    @map.control_init(:large_map => true,
+                      :map_type => true)
+    @map.center_zoom_init(loc, @restaurant.zoom)
+    marker = GMarker.new(@restaurant.location, :draggable => true, :title => @restaurant.name, :info_window => @restaurant.address)
+
+    #@map.event_init(@marker, click, "map_on_drag_end")
+#    @map.overlay_init(marker)
+    @map.overlay_global_init(marker,"marker")
+@map.event_init(marker, "dragend", "function(){ alert(\"TEST\");}")
+#  @map.record_init
+     # marker.on_dragend("map_on_drag_end")
+   #  @map.record_init
+     # @map.on_zoomend("gmap_update_zoom")
+#    render :layout => 'application'
+
   end
 
   # POST /restaurants

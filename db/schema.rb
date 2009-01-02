@@ -13,7 +13,13 @@ ActiveRecord::Schema.define(:version => 20081231130938) do
 
   create_table "restaurants", :force => true do |t|
     t.string   "name"
+    t.string   "street"
+    t.string   "number"
+    t.string   "city"
     t.text     "desc"
+    t.float    "longitude"
+    t.float    "latitude"
+    t.float    "zoom"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

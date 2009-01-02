@@ -7,7 +7,9 @@
   <b>Desc:</b>
   <%=h @restaurant.desc %>
 </p>
-
+<p>
+<%= @map.div(:width => 600, :height => 400) %>
+</p>
 
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
 <%= link_to 'Back', restaurants_path %>
