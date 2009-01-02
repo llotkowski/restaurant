@@ -23,7 +23,7 @@ class RestaurantsController < ApplicationController
       @map.overlay_init(GMarker.new([loc.lat, loc.lng],:title => @restaurant.name, :info_window => @restaurant.address))
     end
     respond_to do |format|
-      format.html # show.html.erb
+      format.html { render :layout => 'application' } # new.html.erb
       format.xml  { render :xml => @restaurant }
     end
   end
