@@ -1,0 +1,23 @@
+<p>
+  <b>Name:</b>
+  <%=h @meal.name %>
+</p>
+
+<p>
+  <b>Elements:</b>
+  <%=h @meal.elements %>
+</p>
+
+<p>
+  <b>Amount:</b>
+  <%=h @meal.amount %>
+</p>
+
+<p>
+  <b>Unit:</b>
+  <%=h @meal.unit %>
+</p>
+
+
+<%= link_to 'Edit', edit_meal_path(@meal) %> |
+<%= link_to 'Back', meals_path %>

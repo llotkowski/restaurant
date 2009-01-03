@@ -5,7 +5,7 @@ class RestaurantsController < ApplicationController
     @restaurants = Restaurant.find(:all)
 
     respond_to do |format|
-      format.html { render :layout => 'welcome' } # index.html.erb
+      format.html { render :layout => 'application' } # index.html.erb
       format.xml  { render :xml => @restaurants }
     end
   end
@@ -23,7 +23,7 @@ class RestaurantsController < ApplicationController
     @map.overlay_init(GMarker.new([loc.lat, loc.lng],:title => @restaurant.name, :info_window => @restaurant.popup_desc))
 
     respond_to do |format|
-      format.html { render :layout => 'welcome' } # new.html.erb
+      format.html { render :layout => 'application' } # new.html.erb
       format.xml  { render :xml => @restaurant }
     end
   end
@@ -34,7 +34,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new
 
     respond_to do |format|
-      format.html { render :layout => 'welcome' } # new.html.erb
+      format.html { render :layout => 'application' } # new.html.erb
       format.xml  { render :xml => @restaurant }
     end
   end
@@ -43,7 +43,7 @@ class RestaurantsController < ApplicationController
   def edit
     @restaurant = Restaurant.find(params[:id])
 
-    render :layout => 'welcome'
+    render :layout => 'application'
   end
 
   # POST /restaurants
