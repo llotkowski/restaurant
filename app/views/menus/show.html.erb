@@ -1,0 +1,28 @@
+<p>
+  <b>Restaurant:</b>
+  <%=h @menu.restaurant.name %>
+</p>
+
+<p>
+  <b>Meal:</b>
+  <%=h @menu.meal.name %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%=h @menu.category.name %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%=h @menu.price %>
+</p>
+
+<p>
+  <b>Duration:</b>
+  <%=h @menu.duration %>
+</p>
+
+
+<%= link_to 'Edit', edit_menu_path(@menu) %> |
+<%= link_to 'Back', menus_path %>

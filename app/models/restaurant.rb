@@ -1,9 +1,12 @@
 class Restaurant < ActiveRecord::Base
   acts_as_mappable
 
+  has_many :menus, :dependent => :destroy
+ 
+
   has_attached_file :photo,
     :styles => {
-      :thumb=> "100x100>",
+    :thumb=> "100x100>",
     :medium  => "<500x173" }
 
   def address

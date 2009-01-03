@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  restaurant: 
+  meal: 
+  categorie: 
+  price: 1.5
+  duration: 1
+
+two:
+  restaurant: 
+  meal: 
+  categorie: 
+  price: 1.5
+  duration: 1
