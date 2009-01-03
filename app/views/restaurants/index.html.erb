@@ -10,7 +10,8 @@
   <tr>
     <td><%=h restaurant.name %></td>
     <td><%=h restaurant.desc %></td>
-    <td><%= link_to 'Show', {:controller => "restaurants", :action => "home", :id => restaurant.id} %></td>
+    <td><%= link_to 'Show',  restaurant_path(restaurant) %></td>
+    <td><%= link_to 'WWW', {:controller => "restaurants", :action => "home", :id => restaurant.id} %></td>
     <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
     <td><%= link_to 'Destroy', restaurant, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

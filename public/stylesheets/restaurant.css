@@ -204,7 +204,7 @@ a:hover {
     height: 285px;
 	margin: -30px 0px;
 	display: inline;
-    background: url(../images/restaurant/photo.jpg) no-repeat;
+    /*background: url(../images/restaurant/photo.jpg) no-repeat;*/
 }
 
 #body #specials {
