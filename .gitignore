@@ -1,7 +1,6 @@
 *~
 \#*
 .\#*
-db/*
 log/*.log
 tmp/**/*
 nbproject/*
