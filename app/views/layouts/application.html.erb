@@ -7,29 +7,25 @@
   <%= stylesheet_link_tag "restaurant" %>
   <%= stylesheet_link_tag "style" %>
   <%= javascript_include_tag :defaults %>
-
 </head>
 <body>
     <div id="wrapper">
       <div id="header">
-        <h1><a href="http://www.freewebsitetemplates.com"><img src="../images/restaurant/logo.gif" alt="Chinese Cuisine" /></a></h1>
+        <h1><div style="float : right; width : 486px; text-align : center; font-size : x-large"><br/><%= @restaurant.name %></div></h1>
         <ul id="nav">
           <li><a href="http://www.freewebsitetemplates.com">HOME</a> &nbsp;|&nbsp; </li>
-          <li><a href="http://www.freewebsitetemplates.com">RESTAURANT</a> &nbsp;|&nbsp; </li>
           <li><a href="http://www.freewebsitetemplates.com">MENU</a> &nbsp;|&nbsp; </li>
           <li><a href="http://www.freewebsitetemplates.com">REZERWACJA</a> &nbsp;|&nbsp; </li>
           <%#*<li><a href="http://www.freewebsitetemplates.com">EVENTS</a> &nbsp;|&nbsp; </li>%>
           <li><a href="http://www.freewebsitetemplates.com">KONTAKT</a></li>
         </ul><!-- end nav -->
-        <div id="welcome">
-          <h2><img src="../images/restaurant/title_welcome.gif" alt="Welcome to our Restaurant" /></h2>
-          <p>Some demo text goes here. Some demo text goes here. Some demo text goes here. Some demo text goes here. Some demo text goes here. Some demo text goes here. Some demo text goes here. Some demo text goes here. Some demo text goes here. Some demo text goes here. Some demo text goes here. Some demo text goes here. Some demo text goes here. Some demo text goes here. Some demo text goes here. Some demo text goes here. Some demo text goes here. Some demo text goes here. Some demo text goes here. Some demo text goes here. Some demo text goes here. Some demo text goes here. Some demo text goes here. Some demo text goes here. Some demo text goes here.</p>
-        </div><!-- end welcome -->
+      <div id="welcome">
+	
+      </div><!-- end welcome -->
+
       </div><!-- end header -->
       <div id="body">
-
           <%= yield  %>
-
       </div><!-- end body -->
       <div id="hotstuff">
         <h2><img src="../images/restaurant/title_hot.gif" alt="Today's Hot" /></h2>
