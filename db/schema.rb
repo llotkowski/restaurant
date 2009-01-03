@@ -11,6 +11,12 @@
 
 ActiveRecord::Schema.define(:version => 20090103170330) do
 
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "meals", :force => true do |t|
     t.string   "name"
     t.text     "elements"
@@ -18,6 +24,9 @@ ActiveRecord::Schema.define(:version => 20090103170330) do
     t.string   "unit"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "meal_photo_file_name"
+    t.string   "meal_photo_content_type"
+    t.integer  "meal_photo_file_size"
   end
 
   create_table "restaurants", :force => true do |t|
