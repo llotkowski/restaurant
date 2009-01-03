@@ -1,0 +1,27 @@
+<% form_for(@menu) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :restaurant %><br />
+    <%= f.text_field :restaurant_id, :value => params[:id], :name => "restaurant_id" %>
+  </p>
+  <p>
+    <%= f.label :meal %><br />
+    <%= select("menu", "meal_id", Meal.find(:all).collect { |m| [m.name, m.id] }, {}) %>
+  </p>
+  <p>
+    <%= f.label :category %><br />
+    <%= select("menu", "category_id", Category.find(:all).collect { |c| [c.name, c.id] }, {}) %>
+  </p>
+  <p>
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
+  </p>
+  <p>
+    <%= f.label :duration %><br />
+    <%= f.text_field :duration %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>

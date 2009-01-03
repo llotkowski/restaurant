@@ -21,7 +21,8 @@
           <li><%= link_to 'HOME', {:controller => "restaurants", :action => "home", :id => @restaurant.id} %>  &nbsp;|&nbsp;</li>
           <li><%= link_to 'MENU', {:controller => "restaurants", :action => "menu", :id => @restaurant.id} %>  &nbsp;|&nbsp;</li>
           <li><%= link_to 'REZERWACJA', {:controller => "restaurants", :action => "book", :id => @restaurant.id} %>  &nbsp;|&nbsp;</li>
-          <li><%= link_to 'KONTAKT', {:controller => "restaurants", :action => "contact", :id => @restaurant.id} %></li>
+          <li><%= link_to 'KONTAKT', {:controller => "restaurants", :action => "contact", :id => @restaurant.id} %>  &nbsp;|&nbsp;</li
+          <li><%= link_to 'STRONA GŁÓWNA', {:controller => "welcome", :action => "main"} %></li>
         </ul><!-- end nav -->
         <div id="welcome">
           <h2><img src="../../images/restaurant/title_welcome.gif" alt="Welcome to our Restaurant" /></h2>

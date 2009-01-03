@@ -104,6 +104,14 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
   end
 
+  def add_menu_to_restaurant
+    @menu = Menu.new
+    
+    @restaurant = Restaurant.find(params[:id])
+
+    
+  end
+
   # GET /restaurants/book/1
   def book
     @restaurant = Restaurant.find(params[:id])

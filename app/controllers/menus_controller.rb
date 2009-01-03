@@ -40,13 +40,25 @@ class MenusController < ApplicationController
   # POST /menus
   # POST /menus.xml
   def create
+
     @menu = Menu.new(params[:menu])
 
+    if(params[:restaurant_id] != nil)
+      @restaurant = Restaurant.find(params[:restaurant_id])
+      @menu.restaurant_id = @restaurant.id
+      puts "PARAMS ID = " + params[:restaurant_id].to_s
+    end
+    
     respond_to do |format|
       if @menu.save
         flash[:notice] = 'Menu was successfully created.'
-        format.html { redirect_to(@menu) }
-        format.xml  { render :xml => @menu, :status => :created, :location => @menu }
+        if(params[:restaurant_id] == nil)
+          format.html { redirect_to(@menu) }
+          format.xml  { render :xml => @menu, :status => :created, :location => @menu }
+        else
+          format.html { redirect_to :controller => "restaurants", :action => "menu", :id => @restaurant.id}
+          format.xml  { render :xml => @menu, :status => :created, :location => @menu }
+        end
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @menu.errors, :status => :unprocessable_entity }

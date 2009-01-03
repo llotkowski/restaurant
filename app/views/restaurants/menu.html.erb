@@ -1,6 +1,8 @@
-<%#
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
-%>
+<h2 id="hspecials"><img src="../../images/restaurant/title_menus.gif" alt="Kategorie" /></h2>
+<div id="specials">
 
-<%= "menu.html" %>
+<%= link_to 'Dodaj pozycję menu', {:controller => "restaurants", :action => "add_menu_to_restaurant", :id => @restaurant.id} %>
+
+</div><!-- end specials -->
+
+<%= image_tag @restaurant.photo.url(:medium) %>
