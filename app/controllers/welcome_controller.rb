@@ -1,14 +1,17 @@
 class WelcomeController < ApplicationController
   protect_from_forgery :only => [:create, :update, :destroy]
 
+#  O projekcie (informacje)
   def about
 
   end
 
+#  Strona główna projektu (powitalna)
   def main
 
   end
 
+#  Widok mapy z nałożonymi restauracjami lub w przypadku wyszukiwania wyselekcjionowane restauracje
   def show
     if params[:city].nil?
       @title = "Nasze restauracje"
