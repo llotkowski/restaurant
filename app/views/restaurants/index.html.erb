@@ -1,23 +1,19 @@
-<h1>Listing restaurants</h1>
-
+<h1>Lista restauracji</h1>
+<br/ >
 <table>
-  <tr>
-    <th>Name</th>
-    <th>Desc</th>
-  </tr>
-
 <% for restaurant in @restaurants %>
   <tr>
-    <td><%=h restaurant.name %></td>
-    <td><%=h restaurant.desc %></td>
-    <td><%= link_to 'Show',  restaurant_path(restaurant) %></td>
-    <td><%= link_to 'WWW', {:controller => "restaurants", :action => "home", :id => restaurant.id} %></td>
-    <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
-    <td><%= link_to 'Destroy', restaurant, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= image_tag restaurant.photo.url(:thumb), :style => 'float : left; margin-right : 10px;' %> </td>
+    <td><b><%=h restaurant.name %></b><br />
+      <%=h restaurant.address %><br />
+      <%= link_to 'Szczegóły', restaurant_path(restaurant) %>
+      <%= link_to 'Strona www', {:controller => "restaurants", :action => "home", :id => restaurant.id} %>
+      <%= link_to 'Edycja', edit_restaurant_path(restaurant) %> 
+      <%= link_to 'Usuń', restaurant, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New restaurant', new_restaurant_path %>
+<%= link_to 'Dodaj restaurację', new_restaurant_path %>

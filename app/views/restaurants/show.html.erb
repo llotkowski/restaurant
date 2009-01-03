@@ -1,21 +1,16 @@
-<%= image_tag @restaurant.photo.url(:thumb) %>
-
-<p>
-  <b>Name:</b>
+<h2>
   <%=h @restaurant.name %>
-</p>
-
-<p>
-  <b>Desc:</b>
-  <%=h @restaurant.desc %>
-</p>
+</h2>
+<br />
+<div style="min-height : 170px;">
+  <%= image_tag @restaurant.photo.url(:medium), :style => 'float : left; margin-right : 10px;' %>  <%=h @restaurant.desc %>
+</div>
 <p>
   <b>Adres:</b>
   <%=h @restaurant.address %>
 </p>
-<p>
-<%= @map.div(:width => 600, :height => 400) %>
-</p>
-
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-<%= link_to 'Back', restaurants_path %>
+<center>
+<%= @map.div(:width => 600, :height => 400, :class => 'map') %>
+</center>
+<br />
+<%= link_to 'Wróć', restaurants_path %>

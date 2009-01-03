@@ -57,7 +57,7 @@ class RestaurantsController < ApplicationController
         format.html { redirect_to(@restaurant) }
         format.xml  { render :xml => @restaurant, :status => :created, :location => @restaurant }
       else
-        format.html { render :action => "new" }
+        format.html { render :action => "new", :layout => 'application' }
         format.xml  { render :xml => @restaurant.errors, :status => :unprocessable_entity }
       end
     end
@@ -74,7 +74,7 @@ class RestaurantsController < ApplicationController
         format.html { redirect_to(@restaurant) }
         format.xml  { head :ok }
       else
-        format.html { render :action => "edit" }
+        format.html { render :action => "edit", :layout => 'application' }
         format.xml  { render :xml => @restaurant.errors, :status => :unprocessable_entity }
       end
     end
@@ -106,10 +106,10 @@ class RestaurantsController < ApplicationController
 
   def add_menu_to_restaurant
     @menu = Menu.new
-    
+
     @restaurant = Restaurant.find(params[:id])
 
-    
+
   end
 
   # GET /restaurants/book/1

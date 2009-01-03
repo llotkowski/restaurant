@@ -1,8 +1,8 @@
 <h1>Dodaj restaurację</h1>
 
 <% form_for @restaurant, :html => { :multipart => true } do |f| %>
-  <%= f.error_messages %>
 
+  <%= error_messages_for 'restaurant', :message => 'Wystąpiły następujące problemy podczas próby zapisu:', :header_message => 'Operacja nie powiodła się' %>
   <p>
     Nazwa<br />
     <%= f.text_field :name %>
