@@ -12,6 +12,16 @@ html, body, #wrapper, h1, #nav-top, #nav-top li, #nav-left, #nav-top li {
 	list-style: none;
 }
 
+.mj_title { 
+        width : 489px; 
+        height : 86px; 
+        text-align : center; 
+        font-size : xx-large; 
+        float : right; 
+        padding-top : 25px;
+        background-image : url(../images/restaurant/logo.gif);
+}
+
 th, td {
 	font-size: 11px;
 }

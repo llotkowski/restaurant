@@ -16,7 +16,7 @@
   <body>
     <div id="wrapper">
       <div id="header">
-        <h1><a href="http://www.freewebsitetemplates.com"><img src="../../images/restaurant/logo.gif" alt="Chinese Cuisine" /></a></h1>
+        <h1 class="mj_title"><center><%= @restaurant.name%></center></h1>
         <ul id="nav">
           <li><%= link_to 'HOME', {:controller => "restaurants", :action => "home", :id => @restaurant.id} %>  &nbsp;|&nbsp;</li>
           <li><%= link_to 'MENU', {:controller => "restaurants", :action => "menu", :id => @restaurant.id} %>  &nbsp;|&nbsp;</li>
