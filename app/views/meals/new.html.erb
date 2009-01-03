@@ -17,7 +17,7 @@
   </p>
   <p>
     <%= f.label :unit %><br />
-    <%= f.text_field :unit %>
+    <%= select("meal", "unit", %w[ml l dkg kg], {}) %>
   </p>
   <p>
     <%= f.submit "Create" %>
