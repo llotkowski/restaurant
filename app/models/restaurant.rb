@@ -14,7 +14,7 @@ class Restaurant < ActiveRecord::Base
   validates_presence_of :name, :message => "^Nazwa jest wymagana."
   validates_presence_of :street, :message => "^Ulica jest wymagana."
   validates_presence_of :city, :message => "^Miasto jest wymagane."
-  validates_presence_of :number, :message => "^Numer jest wymagany."""
+  validates_presence_of :number, :message => "^Numer jest wymagany."
 
   def address
     street+" "+number+" "+city

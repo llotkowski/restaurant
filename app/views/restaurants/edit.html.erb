@@ -1,36 +1,37 @@
 <h1>Edycja restauracji</h1>
-
+<br />
 <% form_for @restaurant, :html => { :multipart => true } do |f| %>
-
+<center>
   <%= error_messages_for 'restaurant', :message => 'Wystąpiły następujące problemy podczas próby zapisu:', :header_message => 'Operacja nie powiodła się' %>
-
+</center>
   <p>
-    Nazwa<br />
+    <div>Nazwa</div><br />
     <%= f.text_field :name %>
   </p>
   <p>
-    Opis<br />
+    <div>Opis</div><br />
     <%= f.text_area :desc %>
   </p>
   <p>
-    Ulica<br />
+    <div>Ulica</div><br />
     <%= f.text_field :street %>
   </p>
   <p>
-    Numer<br />
+    <div>Numer</div><br />
     <%= f.text_field :number %>
   </p>
   <p>
-    Miejscowość<br />
+    <div>Miejscowość</div><br />
     <%= f.text_field :city %>
   </p>
   <p>
-    Fotografia<br/>
+    <div>Fotografia</div><br/>
     <%= f.file_field :photo %>
   </p>
   <p>
+    <br/>
     <%= f.submit "Zapisz" %>
   </p>
 <% end %>
-
+<br/>
 <%= link_to 'Wróć', restaurants_path %>

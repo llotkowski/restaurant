@@ -3,7 +3,7 @@
 <table>
 <% for restaurant in @restaurants %>
   <tr>
-    <td><%= image_tag restaurant.photo.url(:thumb), :style => 'float : left; margin-right : 10px;' %> </td>
+    <td width="110"><%= image_tag restaurant.photo.url(:thumb), :style => 'float : left; margin-right : 10px;' %> </td>
     <td><b><%=h restaurant.name %></b><br />
       <%=h restaurant.address %><br />
       <%= link_to 'Szczegóły', restaurant_path(restaurant) %>

@@ -1,36 +1,37 @@
-<h1>Editing user</h1>
-
+<h1>Edycja użytkownika</h1>
+<br/>
 <% form_for(@user) do |f| %>
-  <%= f.error_messages %>
-
+<center>
+  <%= error_messages_for 'user', :message => 'Wystąpiły następujące problemy podczas próby zapisu:', :header_message => 'Operacja nie powiodła się' %>
+</center>
   <p>
-    <%= f.label :login %><br />
+    <div>Login</div><br />
     <%= f.text_field :login %>
   </p>
   <p>
-    <%= f.label :password %><br />
-    <%= f.text_field :password %>
+    <div>Hasło</div><br />
+    <%= f.password_field :password %>
   </p>
   <p>
-    <%= f.label :name %><br />
+    <div>Imię</div><br />
     <%= f.text_field :name %>
   </p>
   <p>
-    <%= f.label :surname %><br />
+    <div>Nazwisko</div><br />
     <%= f.text_field :surname %>
   </p>
   <p>
-    <%= f.label :email %><br />
+    <div>E-mail</div><br />
     <%= f.text_field :email %>
   </p>
   <p>
-    <%= f.label :isadmin %><br />
-    <%= f.text_field :isadmin %>
+    <div>Administrator</div><br />
+    <%= select( "user", "isadmin", { "Nie" => "false", "Tak" => "true"}) %>
   </p>
   <p>
-    <%= f.submit "Update" %>
+    <br/>
+    <%= f.submit "Zapisz" %>
   </p>
 <% end %>
-
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<br/>
+<%= link_to 'Wróć', users_path %>

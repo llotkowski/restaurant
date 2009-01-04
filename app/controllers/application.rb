@@ -10,9 +10,9 @@ class ApplicationController < ActionController::Base
     if session[:user]
       user = User.find(session[:user])
       if user.isadmin == "true"
-        @user_link = "<a href=\"/admin\">Administracja</a>"
+        @user_link = "<a href=\"/welcome/admin\">Administracja</a>"
       else
-        @user_link = "<a href=\"/my_books\">Moje rezerwacje</a>"
+        @user_link = "<a href=\"/welcome/my_books\">Moje rezerwacje</a>"
       end
     else
       @user_link = "<a href=\"/login\">Zaloguj się</a>"
