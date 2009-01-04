@@ -4,30 +4,32 @@
 <center>
   <%= error_messages_for 'user', :message => 'Wystąpiły następujące problemy podczas próby zapisu:', :header_message => 'Operacja nie powiodła się' %>
 </center>
-  <p>
-    <div>Login</div><br />
-    <%= f.text_field :login %>
-  </p>
-  <p>
-    <div>Hasło</div><br />
-    <%= f.password_field :password %>
-  </p>
-  <p>
-    <div>Imię</div><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <div>Nazwisko</div><br />
-    <%= f.text_field :surname %>
-  </p>
-  <p>
-    <div>E-mail</div><br />
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <div>Administrator</div><br />
-    <%= select( "user", "isadmin", { "Nie" => "false", "Tak" => "true"}) %>
-  </p>
+<table>
+  <tr>
+    <td>Login</td>
+    <td><%= f.text_field :login %></td>
+  </tr>
+  <tr>
+    <td>Hasło</td>
+    <td><%= f.password_field :password %></td>
+  </tr>
+  <tr>
+    <td>Imię</td>
+    <td><%= f.text_field :name %></td>
+  </tr>
+  <tr>
+    <td>Nazwisko</td>
+    <td><%= f.text_field :surname %></td>
+  </tr>
+  <tr>
+    <td>E-mail</td>
+    <td><%= f.text_field :email %></td>
+  </tr>
+  <tr>
+    <td>Administrator</td>
+    <td><%= select( "user", "isadmin", { "Nie" => "false", "Tak" => "true"}) %></td>
+  </tr>
+</table>
   <p>
     <br/>
     <%= f.submit "Zapisz" %>
