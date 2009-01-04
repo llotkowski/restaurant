@@ -17,6 +17,11 @@
   </head>
   <body>
   <div id="wrapper">
+    <div style="position : absolute; top : 10px; right : 10px;">
+      <% if session[:user]%>
+      <a href="/login/logout">Wyloguj się</a>
+      <% end %>
+    </div>
     <div id="logo">
       <h1>Bistro Ministro</h1>
       <p>Najlepsza sieć restauracji</p>
@@ -30,10 +35,10 @@
       </div>
       <div id="nav-right">
         <ul>
-          <li><a href="/welcome/about">O nas</a></li>
-          <li><a href="/menus">Menu</a></li>
+          <li><%= @user_link%></li>
           <li><a href="/meals">Posiłki</a></li>
           <li><a href="/restaurants/">Restauracje</a></li>
+          <li><a href="/welcome/about">O nas</a></li>
         </ul>
       </div>
     </div>
