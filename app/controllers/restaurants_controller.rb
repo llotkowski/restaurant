@@ -111,16 +111,18 @@ class RestaurantsController < ApplicationController
     # Pobranie listy kategori do wyświetlenia w Menu danej restauracji (tylko te kategorie w których są przypisane dania)
     @category_list = Menu.find(:all, :select => 'DISTINCT category_id', :conditions => ['restaurant_id = ?', @restaurant.id], :order => 'category_id asc')
 
-    # Pobranie pierwszej kategorii z listy w celu wyświetlenia dań gdy nie wybrana jest jeszcze żadna kategoria
-    @number = @category_list.first.category_id
+    if(@category_list.size != 0)
+      # Pobranie pierwszej kategorii z listy w celu wyświetlenia dań gdy nie wybrana jest jeszcze żadna kategoria
+      @number = @category_list.first.category_id
 
-    # Pobranie Menu według wybranej kategorii lub domyślnie według pierwszej z listy
-    if (params[:category] != nil)
-      @restaurant_menu = Menu.find(:all , :conditions => ['category_id = ?' , params[:category]])
-    else
-      @restaurant_menu = Menu.find(:all , :conditions => ['category_id = ?' , @number])
+      # Pobranie Menu według wybranej kategorii lub domyślnie według pierwszej z listy
+      if (params[:category] != nil)
+        @restaurant_menu = Menu.find(:all , :conditions => ['category_id = ?' , params[:category]])
+      else
+        @restaurant_menu = Menu.find(:all , :conditions => ['category_id = ?' , @number])
+      end
     end
-
+    
   end
 
   def add_menu_to_restaurant

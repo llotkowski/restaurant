@@ -1,6 +1,10 @@
 <div id="specials">
   <div class="header_small_menu" style="border-right: 1px solid white;">Specjalność zakładu</div>
 
+  <%  if(@special_menu.size == 0)%>
+    <div style="font-size: 12px; padding: 10px 10px;">Brak dań</div>
+  <% end %>
+  
   <% for menu in @special_menu %>
     <div class="imagebox">
       <div style="float: left; width: 90px; margin-right: 10px;">
