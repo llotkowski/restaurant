@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20090104112919) do
 
   create_table "meals", :force => true do |t|
     t.string   "name"
+    t.text     "desc"
     t.text     "elements"
     t.float    "amount"
     t.string   "unit"
