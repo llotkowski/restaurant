@@ -1,26 +1,54 @@
-<% form_for(@menu) do |f| %>
-  <%= f.error_messages %>
+<div id="specials" >
+  <div class="header_menu" style="margin-left: -2px;">Menu</div>
 
-  <p>
-    <%= f.label :meal %><br />
-    <%= select("menu", "meal_id", Meal.find(:all).collect { |m| [m.name, m.id] }, {}) %>
-  </p>
-  <p>
-    <%= f.label :category %><br />
-    <%= select("menu", "category_id", Category.find(:all).collect { |c| [c.name, c.id] }, {}) %>
-  </p>
-  <p>
-    <%= f.label :price %><br />
-    <%= f.text_field :price %>
-  </p>
-  <p>
-    <%= f.label :duration %><br />
-    <%= f.text_field :duration %>
-  </p>
+  <ul>
+    <% for category in @category_list %>
 
-  <%= f.hidden_field :restaurant_id, :value => params[:id], :name => "restaurant_id" %>
+      <li style="padding-top: 5px; font-size: 12px; font-weight: bold;"><%= link_to Category.find(category.category_id).name, {:controller => "restaurants", :action => "menu", :id => @restaurant.id, :category => category.category_id}, :class => "no_underline" %></li>
 
-  <p>
-    <%= f.submit "Create" %>
-  </p>
-<% end %>
+    <% end %>
+  </ul>
+
+  <div style="padding-left: 30px; font-size: 11px;">
+    <%= link_to 'Dodaj pozycję menu', {:controller => "restaurants", :action => "add_menu_to_restaurant", :id => @restaurant.id} %>
+  </div>
+
+</div><!-- end specials -->
+
+<div id="menu_body">
+  <div class="header_menu">Dodawanie dania</div>
+
+  <div class="body_menu">
+    <% form_for(@menu) do |f| %>
+      <%= f.error_messages %>
+
+      <p>
+        Danie <br/>
+        <%= select("menu", "meal_id", Meal.find(:all).collect { |m| [m.name, m.id] }, {}) %>
+      </p>
+      <br/>
+      <p>
+        Kategoria menu<br />
+        <%= select("menu", "category_id", Category.find(:all).collect { |c| [c.name, c.id] }, {}) %>
+      </p>
+      <br/>
+      <p>
+        Cena 
+        <%= f.text_field :price, :size => "8" %> zł
+      </p>
+      <br/>
+      <p>
+        Czas przygotowania 
+        <%= select("menu", "duration", %w[5 10 15 20 25 30 35 40 45 50 55 60], {}) %>
+      </p>
+      <br/>
+
+      <%= f.hidden_field :restaurant_id, :value => params[:id], :name => "restaurant_id" %>
+
+      <p>
+        <%= f.submit "Dodaj" %>
+      </p>
+    <% end %>
+
+  </div>
+</div>
