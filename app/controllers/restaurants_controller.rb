@@ -150,8 +150,8 @@ class RestaurantsController < ApplicationController
     if(params[:id] != nil)
       @restaurant = Restaurant.find(params[:id])
 
-      # Pobranie specjalności zakładu (3 najdroższe dania w danej restauracji)
-      @hot_menu = Menu.find(:all, :conditions => ['restaurant_id = ?', @restaurant.id])
+      # Pobierane ostatnie 7 dodanych posiłków i wybierane 3 losowe
+      @hot_menu = Menu.find(:all, :conditions => ['restaurant_id = ?', @restaurant.id], :order => 'created_at desc', :limit => 7 )
       @hot_menu = @hot_menu.sort_by{rand}.first(3)
     end
     
