@@ -19,7 +19,7 @@
       </td>
       <td width="80px;">
         <%= link_to image_tag("../images/signs/show.png", :class => "icon"), meal %>
-        <%= link_to image_tag("../images/signs/edit.gif", :class => "icon"), edit_meal_path(meal) %>
+        <%= link_to image_tag("../images/signs/edit.png", :class => "icon"), edit_meal_path(meal) %>
         <%= link_to image_tag("../images/signs/delete.png", :class => "icon"),  meal, :confirm => 'Czy aby na pewno?', :method => :delete %>
       </td>
     </tr>
@@ -28,4 +28,4 @@
 
 <br />
 
-<% image_tag("../images/signs/add.png", :class => "icon") %> <%= link_to 'Dodaj posiłek', new_meal_path %>
+<%= image_tag("../images/signs/add.png", :class => "icon") %> <%= link_to 'Dodaj posiłek', new_meal_path %>

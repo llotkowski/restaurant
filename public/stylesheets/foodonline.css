@@ -302,3 +302,7 @@ p {
   list-style: square;
   margin-left: 20px;                          
 }
+
+.icon {
+    margin-bottom: -3px;
+}

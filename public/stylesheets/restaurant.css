@@ -365,3 +365,7 @@ a:hover {
 .no_underline {
     text-decoration: none;
 }
+
+.icon {
+    margin-bottom: -3px;
+}
