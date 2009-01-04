@@ -1,0 +1,29 @@
+<% form_for @meal, :html => { :multipart => true } do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :elements %><br />
+    <%= f.text_area :elements %>
+  </p>
+  <p>
+    <%= f.label :amount %><br />
+    <%= f.text_field :amount %>
+  </p>
+  <p>
+    <%= f.label :unit %><br />
+    <%= select("meal", "unit", %w[l ml kg dkg szt], {}) %>
+  </p>
+
+  <p>
+    <div>Fotografia</div><br/>
+    <%= f.file_field :meal_photo %>
+  </p>
+
+  <p>
+    <%= f.submit button_name %>
+  </p>
+<% end %>

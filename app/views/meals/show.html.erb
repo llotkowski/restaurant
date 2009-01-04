@@ -1,4 +1,7 @@
-<%= image_tag @meal.meal_photo.url(:medium) %>
+<p>
+  <b>Zdjęcie</b>
+  <%= image_tag @meal.meal_photo.url(:thumb) %>
+</p>
 <p>
   <b>Name:</b>
   <%=h @meal.name %>

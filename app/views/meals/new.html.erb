@@ -1,33 +1,6 @@
 <h1>New meal</h1>
+<br />
 
-<% form_for @meal, :html => { :multipart => true } do |f| %> 
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :elements %><br />
-    <%= f.text_area :elements %>
-  </p>
-  <p>
-    <%= f.label :amount %><br />
-    <%= f.text_field :amount %>
-  </p>
-  <p>
-    <%= f.label :unit %><br />
-    <%= select("meal", "unit", %w[ml l dkg kg], {}) %>
-  </p>
-
-   <p>
-     <div>Fotografia</div><br/>
-    <%= f.file_field :meal_photo %>
-  </p>
-  
-  <p>
-    <%= f.submit "Create" %>
-  </p>
-<% end %>
+<%= render :partial => 'meal_form', :locals => { :button_name => "Dodaj"} %>
 
 <%= link_to 'Back', meals_path %>

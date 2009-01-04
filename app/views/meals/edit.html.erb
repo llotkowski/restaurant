@@ -1,28 +1,7 @@
 <h1>Editing meal</h1>
+<br />
 
-<% form_for(@meal) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :elements %><br />
-    <%= f.text_area :elements %>
-  </p>
-  <p>
-    <%= f.label :amount %><br />
-    <%= f.text_field :amount %>
-  </p>
-  <p>
-    <%= f.label :unit %><br />
-    <%= f.text_field :unit %>
-  </p>
-  <p>
-    <%= f.submit "Update" %>
-  </p>
-<% end %>
+<%= render :partial => 'meal_form', :locals => { :button_name => "Edytuj"} %>
 
 <%= link_to 'Show', @meal %> |
 <%= link_to 'Back', meals_path %>
