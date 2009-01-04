@@ -114,7 +114,6 @@ class RestaurantsController < ApplicationController
     # Pobranie pierwszej kategorii z listy w celu wyświetlenia dań gdy nie wybrana jest jeszcze żadna kategoria
     @number = @category_list.first.category_id
 
-
     # Pobranie Menu według wybranej kategorii lub domyślnie według pierwszej z listy
     if (params[:category] != nil)
       @restaurant_menu = Menu.find(:all , :conditions => ['category_id = ?' , params[:category]])
@@ -133,6 +132,7 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/book/1
   def book
     @restaurant = Restaurant.find(params[:id])
+    @places = Place.find(:all, :conditions => ['restaurant_id = ?', @restaurant.id])
   end
 
   # GET /restaurants/contact/1

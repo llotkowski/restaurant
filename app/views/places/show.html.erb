@@ -1,0 +1,23 @@
+<p>
+  <b>Restaurant:</b>
+  <%=h @place.restaurant %>
+</p>
+
+<p>
+  <b>X:</b>
+  <%=h @place.x %>
+</p>
+
+<p>
+  <b>Y:</b>
+  <%=h @place.y %>
+</p>
+
+<p>
+  <b>Number:</b>
+  <%=h @place.number %>
+</p>
+
+
+<%= link_to 'Edit', edit_place_path(@place) %> |
+<%= link_to 'Back', places_path %>
