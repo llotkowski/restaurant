@@ -6,6 +6,8 @@
     <td width="110"><%= image_tag restaurant.photo.url(:thumb), :style => 'float : left; margin-right : 10px;' %> </td>
     <td><b><%=h restaurant.name %></b><br />
       <%=h restaurant.address %><br />
+      Telefon: <%=h restaurant.phone %><br/>
+      Kuchnia: <%=h restaurant.cuisine.name %><br/>
       <%= link_to 'Szczegóły', restaurant_path(restaurant) %>
       <%= link_to 'Strona www', {:controller => "restaurants", :action => "home", :id => restaurant.id} %>
       <%= link_to 'Edycja', edit_restaurant_path(restaurant) %> 

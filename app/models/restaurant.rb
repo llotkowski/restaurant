@@ -2,6 +2,7 @@ class Restaurant < ActiveRecord::Base
   acts_as_mappable
 
   has_many :menus, :dependent => :destroy
+  belongs_to :cuisine
 
   has_attached_file :photo,
     :styles => {

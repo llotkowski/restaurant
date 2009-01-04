@@ -1,0 +1,48 @@
+<% form_for @restaurant, :html => { :multipart => true } do |f| %>
+  <center>
+    <%= error_messages_for 'restaurant', :message => 'Wystąpiły następujące problemy podczas próby zapisu:', :header_message => 'Operacja nie powiodła się' %>
+  </center>
+  <p>
+    <div>Nazwa</div><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+     <div>Opis</div><br />
+    <%= f.text_area :desc %>
+  </p>
+  <p>
+    <%= select("restaurant", "cuisine_id", Cuisine.find(:all).collect { |c| [c.name, c.id] }, {}) %>
+  </p>
+  <p>
+     <div>Właściciel</div><br />
+    <%= f.text_field :owner %>
+  </p>
+  <p>
+     <div>Telefon</div><br />
+    <%= f.text_field :phone %>
+  </p>
+  <p>
+     <div>E-mail</div><br />
+    <%= f.text_field :email %>
+  </p>
+  <p>
+     <div>Ulica</div><br />
+    <%= f.text_field :street %>
+  </p>
+  <p>
+     <div>Numer</div><br />
+    <%= f.text_field :number %>
+  </p>
+  <p>
+     <div>Miejscowość</div><br />
+    <%= f.text_field :city %>
+  </p>
+  <p>
+     <div>Fotografia</div><br/>
+    <%= f.file_field :photo %>
+  </p>
+  <p>
+    <br/>
+    <%= f.submit button_name %>
+  </p>
+<% end %>

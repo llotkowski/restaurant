@@ -1,0 +1,20 @@
+<h1>Listing cuisines</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+
+<% for cuisine in @cuisines %>
+  <tr>
+    <td><%=h cuisine.name %></td>
+    <td><%= link_to 'Show', cuisine %></td>
+    <td><%= link_to 'Edit', edit_cuisine_path(cuisine) %></td>
+    <td><%= link_to 'Destroy', cuisine, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New cuisine', new_cuisine_path %>

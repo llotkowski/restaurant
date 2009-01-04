@@ -9,9 +9,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090103235636) do
+ActiveRecord::Schema.define(:version => 20090104112919) do
 
   create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "cuisines", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -41,10 +47,14 @@ ActiveRecord::Schema.define(:version => 20090103235636) do
 
   create_table "restaurants", :force => true do |t|
     t.string   "name"
+    t.integer  "cuisine_id"
     t.string   "street"
     t.string   "number"
     t.string   "city"
     t.text     "desc"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "owner"
     t.float    "longitude"
     t.float    "latitude"
     t.float    "zoom"

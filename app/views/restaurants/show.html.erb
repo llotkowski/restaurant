@@ -9,6 +9,22 @@
   <b>Adres:</b>
   <%=h @restaurant.address %>
 </p>
+<p>
+  <b>Rodzaj kuchni:</b>
+  <%=h @restaurant.cuisine.name %>
+</p>
+<p>
+  <b>Właściciel:</b>
+  <%=h @restaurant.owner %>
+</p>
+<p>
+  <b>Telefon:</b>
+  <%=h @restaurant.phone %>
+</p>
+<p>
+  <b>E-mail</b>
+  <%=h @restaurant.email %>
+</p>
 <center>
 <%= @map.div(:width => 600, :height => 400, :class => 'map') %>
 </center>
