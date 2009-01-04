@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  restaurant: 
+  user: 
+  book_date: 2009-01-04 18:25:11
+
+two:
+  restaurant: 
+  user: 
+  book_date: 2009-01-04 18:25:11
