@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :places
+
   map.resources :cuisines
 
   map.resources :users

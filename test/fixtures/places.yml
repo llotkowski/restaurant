@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  restaurant: 
+  x: 1
+  y: 1
+  number: 1
+
+two:
+  restaurant: 
+  x: 1
+  y: 1
+  number: 1

@@ -105,13 +105,13 @@ class RestaurantsController < ApplicationController
 
     @category_list = Menu.find(:all, :select => 'DISTINCT category_id', :conditions => ['restaurant_id = ?', @restaurant.id], :order => 'category_id asc')
 
-    
+
     @restaurant_menu = Menu.find(:all , :conditions => ['category_id = ?' , params[:category]])
-    
-    
 
 
-    
+
+
+
   end
 
   def add_menu_to_restaurant
@@ -125,6 +125,7 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/book/1
   def book
     @restaurant = Restaurant.find(params[:id])
+    @places = Place.find(:all, :conditions => ['restaurant_id = ?', @restaurant.id])
   end
 
   # GET /restaurants/contact/1
