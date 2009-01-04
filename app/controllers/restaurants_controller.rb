@@ -117,9 +117,9 @@ class RestaurantsController < ApplicationController
 
       # Pobranie Menu według wybranej kategorii lub domyślnie według pierwszej z listy
       if (params[:category] != nil)
-        @restaurant_menu = Menu.find(:all , :conditions => ['category_id = ?' , params[:category]])
+        @restaurant_menu = Menu.find(:all , :conditions => ['category_id = ?' , params[:category]], :order => "price asc")
       else
-        @restaurant_menu = Menu.find(:all , :conditions => ['category_id = ?' , @number])
+        @restaurant_menu = Menu.find(:all , :conditions => ['category_id = ?' , @number], :order => "price asc")
       end
     end
 

@@ -4,13 +4,14 @@
   <ul>
     <% for category in @category_list %>
 
-      <li><%= link_to Category.find(category.category_id).name, {:controller => "restaurants", :action => "menu", :id => @restaurant.id, :category => category.category_id} %></li>
+      <li style="padding-top: 5px; font-size: 12px; font-weight: bold;"><%= link_to Category.find(category.category_id).name, {:controller => "restaurants", :action => "menu", :id => @restaurant.id, :category => category.category_id}, :class => "no_underline" %></li>
 
     <% end %>
   </ul>
 
-
-  <%= link_to 'Dodaj pozycję menu', {:controller => "restaurants", :action => "add_menu_to_restaurant", :id => @restaurant.id} %>
+  <div style="padding-left: 30px; font-size: 11px;">
+    <%= link_to 'Dodaj pozycję menu', {:controller => "restaurants", :action => "add_menu_to_restaurant", :id => @restaurant.id} %>
+  </div>
 
 </div><!-- end specials -->
 
@@ -25,15 +26,31 @@
 
   <div class="body_menu">
     <% unless !@restaurant_menu %>
-      <% for menu in @restaurant_menu %>
-    
-        <div>
-          Danie: <%=h menu.meal.name %><br/>
-          Rodzaj: <%=h menu.category.name %><br/>
-        </div>
 
-      <% end %>
+      <table width="100%" style="padding-left: 10px;">
+        <% for menu in @restaurant_menu %>
+          <tr>
+            <td width="30px">
+              <%= image_tag menu.meal.meal_photo.url(:thumb), :size => "80x75", :class => "image_border_menu" %>
+            </td>
+            <td style="vertical-align: top; padding: 5px 10px;">
+              <center>
+                <div style="font-weight: bold; font-size: 12px;">
+                  <%=h menu.meal.name %>
+                </div>
+              </center>
+              <div style="padding: 2px 0px 0px 0px;">
+                <%=h menu.meal.desc %><br/>
+                <b>Cena:</b> <%=h menu.price %><br/>
+                <b>Ilość:</b> <%=h menu.meal.amount %>  <%=h menu.meal.unit %><br/>
+                <b>Czas przygotowania:</b> <%=h menu.duration %><br/>
+              </div>
+            </td>
+
+          </tr>
+        <% end %>
+      </table>
+
     <% end %>
-
   </div>
 </div>

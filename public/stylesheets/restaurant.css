@@ -282,6 +282,11 @@ a:hover {
     border: 1px solid #AD803D;
 }
 
+.image_border_menu {
+    padding: 1px;
+    border: 1px solid #906329;
+}
+
 #body h3, #body p {
 	margin: 0 0 0.2em 0;
 }
@@ -355,4 +360,8 @@ a:hover {
 
 #footer a:hover {
 	color: #fff;
+}
+
+.no_underline {
+    text-decoration: none;
 }
