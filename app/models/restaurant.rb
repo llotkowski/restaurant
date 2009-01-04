@@ -5,8 +5,8 @@ class Restaurant < ActiveRecord::Base
 
   has_attached_file :photo,
     :styles => {
-    :thumb=> "100x100>",
-    :medium  => "<500x173" }
+    :thumb => "100x100>",
+    :medium => "<500x173" }
 
   validates_attachment_presence :photo, :message => "^Fotografia nie została wybrana."
   validates_attachment_size :photo, :less_than => 5.megabytes, :message => "Fotografia jest zbyt duża."
