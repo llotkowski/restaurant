@@ -45,6 +45,10 @@
       <div id="hotstuff">
         <div class="header_menu" style="width: 770px; border-top: 1px solid white;">Najnowsze dania</div>
 
+        <%  if(@hot_menu.size == 0)%>
+          <div style="font-size: 12px; padding: 10px 10px;">Brak nowości</div>
+        <% end %>
+
         <% for menu in @hot_menu %>
           <div id="hot-one" class="imagebox" style="width: 241px;">
             <div style="float: left; padding-right: 8px;">

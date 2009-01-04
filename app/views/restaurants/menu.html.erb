@@ -15,14 +15,22 @@
 </div><!-- end specials -->
 
 <div id="menu_body">
-  <div class="header_menu">Dania</div>
+  <div class="header_menu">
+    <% if !params[:category].nil? %>
+      <%= Category.find(params[:category]).name %>
+    <% else %>
+      Dania
+    <% end %>
+  </div>
+
   <div class="body_menu">
     <% unless !@restaurant_menu %>
       <% for menu in @restaurant_menu %>
-
-        Danie: <%=h menu.meal.name %><br/>
-        Rodzaj: <%=h menu.category.name %><br/>
-        <br/>
+    
+        <div>
+          Danie: <%=h menu.meal.name %><br/>
+          Rodzaj: <%=h menu.category.name %><br/>
+        </div>
 
       <% end %>
     <% end %>
