@@ -306,3 +306,13 @@ p {
 .icon {
     margin-bottom: -3px;
 }
+
+.image_border {
+    padding: 1px;
+    border: 1px solid #AD803D;
+}
+
+.image_border_menu {
+    padding: 1px;
+    border: 1px solid #906329;
+}

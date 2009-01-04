@@ -1,7 +1,7 @@
-<h1>Editing meal</h1>
+<h1>Edycja posiłku</h1>
 <br />
 
 <%= render :partial => 'meal_form', :locals => { :button_name => "Edytuj"} %>
 
-<%= link_to 'Show', @meal %> |
-<%= link_to 'Back', meals_path %>
+<%= link_to image_tag("../images/signs/show.png", :class => "icon"), @meal %> |
+<%= image_tag("../images/signs/back.png", :class => "icon") %> <%= link_to 'Powrót', meals_path %>

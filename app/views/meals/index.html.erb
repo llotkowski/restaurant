@@ -1,4 +1,4 @@
-<h1>Lista posiłków</h1>
+<h2>Lista posiłków</h2>
 
 <table width="100%" style="padding-left: 10px;">
   <% for meal in @meals %>
@@ -14,6 +14,7 @@
         </center>
         <div style="padding: 2px 0px 0px 0px;">
           <%=h meal.desc %><br/>
+          <b>Składniki:</b> <%=h meal.elements %><br />
           <b>Ilość:</b> <%=h meal.amount %>  <%=h meal.unit %><br/>
         </div>
       </td>

@@ -1,27 +1,26 @@
-<p>
-  <b>Zdjęcie</b>
-  <%= image_tag @meal.meal_photo.url(:medium) %>
-</p>
-<p>
-  <b>Name:</b>
-  <%=h @meal.name %>
-</p>
+<h2>Dane szczegółowe</h2>
 
-<p>
-  <b>Elements:</b>
-  <%=h @meal.elements %>
-</p>
+<table width="100%" style="padding-left: 10px;">
+    <tr>
+      <td width="30px">
+        <%= image_tag @meal.meal_photo.url(:medium), :class => "image_border_menu" %>
+      </td>
+      <td style="vertical-align: top; padding: 5px 10px;">
+        <center>
+          <div style="font-weight: bold; font-size: 12px;">
+            <%=h @meal.name %>
+          </div>
+        </center>
+        <div style="padding: 2px 0px 0px 0px;">
+          <%=h @meal.desc %><br/><br />
+          <b>Składniki:</b> <%=h @meal.elements %><br /><br />
+          <b>Ilość:</b> <%=h @meal.amount %>  <%=h @meal.unit %><br/>
+        </div>
+      </td>
+      <td width="80px;">
+        <%= link_to image_tag("../images/signs/edit.png", :class => "icon"), edit_meal_path(@meal) %>
+      </td>
+    </tr>
+</table>
 
-<p>
-  <b>Amount:</b>
-  <%=h @meal.amount %>
-</p>
-
-<p>
-  <b>Unit:</b>
-  <%=h @meal.unit %>
-</p>
-
-
-<%= link_to 'Edit', edit_meal_path(@meal) %> |
-<%= link_to 'Back', meals_path %>
+<%= image_tag("../images/signs/back.png", :class => "icon") %> <%= link_to 'Powrót',  meals_path %>

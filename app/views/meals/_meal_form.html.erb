@@ -2,28 +2,32 @@
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :name %><br />
+    <b>Nazwa</b><br />
     <%= f.text_field :name %>
   </p>
-   <p>
-    <%= f.label :desc %><br />
+  <p>
+    <b>Opis</b><br />
     <%= f.text_area :desc %>
   </p>
   <p>
-    <%= f.label :elements %><br />
+    <b>Składniki</b><br />
     <%= f.text_field :elements %>
   </p>
+  
+    <table cellpadding="0" cellspacing="0" style="margin: 0px;">
+      <tr>
+        <td><b>Ilość</b><br />
+          <%= f.text_field :amount %>
+        </td>
+        <td>
+          <b>Jednostka</b><br />
+          <%= select("meal", "unit", %w[kg dkg l ml szt], {}) %>
+        </td>
+      </tr>
+    </table>
+  
   <p>
-    <%= f.label :amount %><br />
-    <%= f.text_field :amount %>
-  </p>
-  <p>
-    <%= f.label :unit %><br />
-    <%= select("meal", "unit", %w[l ml kg dkg szt], {}) %>
-  </p>
-
-  <p>
-    <div>Fotografia</div><br/>
+    <b>Fotografia</b><br/>
     <%= f.file_field :meal_photo %>
   </p>
 
