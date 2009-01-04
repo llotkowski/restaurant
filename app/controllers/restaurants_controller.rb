@@ -129,6 +129,10 @@ class RestaurantsController < ApplicationController
     @menu = Menu.new
 
     @restaurant = Restaurant.find(params[:id])
+    
+    # Pobranie listy kategori do wyświetlenia w Menu danej restauracji (tylko te kategorie w których są przypisane dania)
+    @category_list = Menu.find(:all, :select => 'DISTINCT category_id', :conditions => ['restaurant_id = ?', @restaurant.id], :order => 'category_id asc')
+
   end
 
   # GET /restaurants/book/1
