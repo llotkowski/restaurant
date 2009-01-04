@@ -7,9 +7,7 @@
   $(document).ready(function(){
     $("#dialog").dialog({
   modal: true,
-  autoOpen: false,
-  width: 350,
-  height: 250
+  autoOpen: false
     });
   });
 function show_form() {
@@ -20,13 +18,17 @@ function show_form() {
 </script>
 
 <div id="dialog" title="Rezerwacja" style="display : none;">
-  <table>
-    <tr>
-      <td>Data</td><td></td>
-      <td>Od godziny</td><td></td>
-      <td>Do godziny</td><td></td>
-    </tr>
-  </table>
+<% form_for(@book) do |f| %>
+<p>
+Proszę wybrać datę oraz godzinę rezerwacji:
+</p>  
+<p>
+    <%= f.datetime_select :book_date %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
 </div>
 
 

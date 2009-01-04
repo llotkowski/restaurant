@@ -122,7 +122,7 @@ class RestaurantsController < ApplicationController
         @restaurant_menu = Menu.find(:all , :conditions => ['category_id = ?' , @number])
       end
     end
-    
+
   end
 
   def add_menu_to_restaurant
@@ -133,6 +133,7 @@ class RestaurantsController < ApplicationController
 
   # GET /restaurants/book/1
   def book
+    @book = Book.new
     @restaurant = Restaurant.find(params[:id])
     @places = Place.find(:all, :conditions => ['restaurant_id = ?', @restaurant.id])
   end
@@ -146,7 +147,7 @@ class RestaurantsController < ApplicationController
   end
 
   def get_meal_of_the_day
-    
+
     if(params[:id] != nil)
       @restaurant = Restaurant.find(params[:id])
 
@@ -154,7 +155,7 @@ class RestaurantsController < ApplicationController
       @hot_menu = Menu.find(:all, :conditions => ['restaurant_id = ?', @restaurant.id], :order => 'created_at desc', :limit => 7 )
       @hot_menu = @hot_menu.sort_by{rand}.first(3)
     end
-    
+
   end
 
 end
