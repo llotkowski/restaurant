@@ -2,12 +2,40 @@
 # To change this template, choose Tools | Templates
 # and open the template in the editor.
 %>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#dialog").dialog({
+  modal: true,
+  autoOpen: false,
+  width: 350,
+  height: 250
+    });
+  });
+function show_form() {
+  document.getElementById('dialog').style.display = '';
+  $('#dialog').dialog("open");
+}
+
+</script>
+
+<div id="dialog" title="Rezerwacja" style="display : none;">
+  <table>
+    <tr>
+      <td>Data</td><td></td>
+      <td>Od godziny</td><td></td>
+      <td>Do godziny</td><td></td>
+    </tr>
+  </table>
+</div>
+
+
 <div style="background-image : url('../../images/room_floor_background.png'); width : 100%; height : 400px;">
 <% for place in @places %>
 <% if place.number == 2%>
- <div style="position : absolute; left : <%=place.x %>px; top : <%=place.y %>px"><img src="../../images/2_place.png" /></div>
+ <div onclick="show_form()" style="position : absolute; left : <%=place.x %>px; top : <%=place.y %>px"><img src="../../images/2_place.png" /></div>
 <% else %>
- <div style="position : absolute; left : <%=place.x %>px; top : <%=place.y %>px"><img src="../../images/4_place.png" /></div>
+ <div onclick="show_form()" style="position : absolute; left : <%=place.x %>px; top : <%=place.y %>px"><img src="../../images/4_place.png" /></div>
 <% end %>
 <% end %>
 
