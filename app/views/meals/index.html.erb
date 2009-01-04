@@ -1,26 +1,31 @@
-<h1>Listing meals</h1>
+<h1>Lista posiłków</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Elements</th>
-    <th>Amount</th>
-    <th>Unit</th>
-  </tr>
-
-<% for meal in @meals %>
-  <tr>
-    <td><%=h meal.name %></td>
-    <td><%=h meal.elements %></td>
-    <td><%=h meal.amount %></td>
-    <td><%=h meal.unit %></td>
-    <td><%= link_to 'Show', meal %></td>
-    <td><%= link_to 'Edit', edit_meal_path(meal) %></td>
-    <td><%= link_to 'Destroy', meal, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+<table width="100%" style="padding-left: 10px;">
+  <% for meal in @meals %>
+    <tr>
+      <td width="30px">
+        <%= image_tag meal.meal_photo.url(:thumb), :size => "80x75", :class => "image_border_menu" %>
+      </td>
+      <td style="vertical-align: top; padding: 5px 10px;">
+        <center>
+          <div style="font-weight: bold; font-size: 12px;">
+            <%=h meal.name %>
+          </div>
+        </center>
+        <div style="padding: 2px 0px 0px 0px;">
+          <%=h meal.desc %><br/>
+          <b>Ilość:</b> <%=h meal.amount %>  <%=h meal.unit %><br/>
+        </div>
+      </td>
+      <td width="80px;">
+        <%= link_to image_tag("../images/signs/show.png", :class => "icon"), meal %>
+        <%= link_to image_tag("../images/signs/edit.gif", :class => "icon"), edit_meal_path(meal) %>
+        <%= link_to image_tag("../images/signs/delete.png", :class => "icon"),  meal, :confirm => 'Czy aby na pewno?', :method => :delete %>
+      </td>
+    </tr>
+  <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New meal', new_meal_path %>
+<% image_tag("../images/signs/add.png", :class => "icon") %> <%= link_to 'Dodaj posiłek', new_meal_path %>
