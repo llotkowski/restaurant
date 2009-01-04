@@ -125,6 +125,13 @@ class RestaurantsController < ApplicationController
 
   end
 
+  # GET /restaurants/places/1
+  def places
+    @restaurant = Restaurant.find(params[:id])
+    @places = Place.find(:all, :conditions => ['restaurant_id = ?', @restaurant.id])
+    render :layout => 'application'
+  end
+
   def add_menu_to_restaurant
     @menu = Menu.new
 
