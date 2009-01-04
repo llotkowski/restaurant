@@ -39,11 +39,18 @@
       </div><!-- end body -->
       <div id="hotstuff">
         <div class="header_menu" style="width: 770px; border-top: 1px solid white;">Dania dnia</div>
-        <div style="background-image: url(../../images/restaurant/picture_4.jpg);" id="hot-one" class="imagebox">
-          <h3><a href="http://www.freewebsitetemplates.com">Today's Hot Item Name</a></h3>
+
+        <% for menu in @hot_menu %>
+          <div style="background-image: url(../../images/restaurant/picture_4.jpg);" id="hot-one" class="imagebox">
+          <h3><a href="http://www.freewebsitetemplates.com"><%= menu.meal.name %> </a></h3>
           <p>Some demo text goes here. Some demo text goes here. Some demo text goes here.</p>
           <p class="readmore"><a href="http://www.freewebsitetemplates.com">... more</a></p>
         </div>
+
+        <% end %>
+
+
+
         <div style="background-image: url(../../images/restaurant/picture_5.jpg);" id="hot-two" class="imagebox">
           <h3><a href="http://www.freewebsitetemplates.com">Today's Hot Item Name</a></h3>
           <p>Some demo text goes here. Some demo text goes here. Some demo text goes here.</p>

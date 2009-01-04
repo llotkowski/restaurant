@@ -1,4 +1,6 @@
 class RestaurantsController < ApplicationController
+  before_filter :get_meal_of_the_day
+
   # GET /restaurants
   # GET /restaurants.xml
   def index
@@ -97,29 +99,35 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/home/1
   def home
     @restaurant = Restaurant.find(params[:id])
+
+    # Pobranie specjalności zakładu (3 najdroższe dania w danej restauracji)
+    @special_menu = Menu.find(:all, :conditions => ['restaurant_id = ?', @restaurant.id], :order => 'price desc', :limit => 3)
   end
 
   # GET /restaurants/menu/1
   def menu
     @restaurant = Restaurant.find(params[:id])
 
+    # Pobranie listy kategori do wyświetlenia w Menu danej restauracji (tylko te kategorie w których są przypisane dania)
     @category_list = Menu.find(:all, :select => 'DISTINCT category_id', :conditions => ['restaurant_id = ?', @restaurant.id], :order => 'category_id asc')
 
-    
-    @restaurant_menu = Menu.find(:all , :conditions => ['category_id = ?' , params[:category]])
-    
-    
+    # Pobranie pierwszej kategorii z listy w celu wyświetlenia dań gdy nie wybrana jest jeszcze żadna kategoria
+    @number = @category_list.first.category_id
 
 
-    
+    # Pobranie Menu według wybranej kategorii lub domyślnie według pierwszej z listy
+    if (params[:category] != nil)
+      @restaurant_menu = Menu.find(:all , :conditions => ['category_id = ?' , params[:category]])
+    else
+      @restaurant_menu = Menu.find(:all , :conditions => ['category_id = ?' , @number])
+    end
+
   end
 
   def add_menu_to_restaurant
     @menu = Menu.new
 
     @restaurant = Restaurant.find(params[:id])
-
-
   end
 
   # GET /restaurants/book/1
@@ -130,6 +138,18 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/contact/1
   def contact
     @restaurant = Restaurant.find(params[:id])
+
+    # Pobranie specjalności zakładu (3 najdroższe dania w danej restauracji)
+    @special_menu = Menu.find(:all, :conditions => ['restaurant_id = ?', @restaurant.id], :order => 'price desc', :limit => 3)
+  end
+
+  def get_meal_of_the_day
+    @restaurant = Restaurant.find(params[:id])
+
+    # Pobranie specjalności zakładu (3 najdroższe dania w danej restauracji)
+    @hot_menu = Menu.find(:all, :conditions => ['restaurant_id = ?', @restaurant.id])
+    @hot_menu = @hot_menu.sort_by{rand}.first(3)
+    
   end
 
 end

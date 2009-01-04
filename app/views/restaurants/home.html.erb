@@ -1,25 +1,7 @@
-<div id="specials">
-  <div class="header_small_menu" style="border-right: 1px solid white;">Specjalność zakładu</div>
-
-  <div style="background-image: url(../../images/restaurant/picture_1.jpg);" class="imagebox">
-    <h3><a href="http://www.freewebsitetemplates.com">Menu Name</a></h3>
-    <p>Some demo text goes here. Some demo text goes here. Some demo text goes here.</p>
-    <p class="readmore"><a href="http://www.freewebsitetemplates.com">... more</a></p>
-  </div>
-  <div style="background-image: url(../../images/restaurant/picture_2.jpg);" class="imagebox">
-    <h3><a href="http://www.freewebsitetemplates.com">Menu Name</a></h3>
-    <p>Some demo text goes here. Some demo text goes here. Some demo text goes here.</p>
-    <p class="readmore"><a href="http://www.freewebsitetemplates.com">... more</a></p>
-  </div>
-  <div style="background-image: url(../../images/restaurant/picture_3.jpg);" class="imagebox">
-    <h3><a href="http://www.freewebsitetemplates.com">Menu Name</a></h3>
-    <p>Some demo text goes here. Some demo text goes here. Some demo text goes here.</p>
-    <p class="readmore"><a href="http://www.freewebsitetemplates.com">... more</a></p>
-  </div>
-</div><!-- end specials -->
+<%= render :partial => 'special_offer_form' %>
 
 <div id="menu_body">
-  
+
   <div class="body_menu">
     <%= image_tag @restaurant.photo.url(:medium) %>
   </div>

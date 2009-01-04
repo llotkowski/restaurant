@@ -271,9 +271,15 @@ a:hover {
 }
 
 #body .imagebox {
-	padding: 2px 8px 2px 100px;
+	padding: 5px 8px 2px 8px;
 	margin: 2px 0;
+    min-height: 76px;
 	background: #9b6f2d 4px no-repeat;
+}
+
+.image_border {
+    padding: 1px;
+    border: 1px solid #AD803D;
 }
 
 #body h3, #body p {

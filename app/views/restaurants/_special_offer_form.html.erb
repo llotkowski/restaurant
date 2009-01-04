@@ -1,0 +1,18 @@
+<div id="specials">
+  <div class="header_small_menu" style="border-right: 1px solid white;">Specjalność zakładu</div>
+
+  <% for menu in @special_menu %>
+    <div class="imagebox">
+      <div style="float: left; width: 90px; margin-right: 10px;">
+        <%= image_tag menu.meal.meal_photo.url(:thumb), :size => '89x67' ,:class => 'image_border' %>
+      </div>
+      <div>
+        <h2><a href="/restaurant/show_meal/idrestauracji" style="font-size: 11px;"><%= menu.meal.name %></a></h2>
+        <p><%= menu.meal.desc %></p>
+        <p class="readmore"><a href="/restaurant/show_meal/idrestauracji">... więcej</a></p>
+      </div>
+    </div>
+
+  <% end %>
+
+</div><!-- end specials -->
