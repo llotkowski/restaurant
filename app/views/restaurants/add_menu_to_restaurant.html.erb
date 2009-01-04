@@ -2,10 +2,6 @@
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :restaurant %><br />
-    <%= f.text_field :restaurant_id, :value => params[:id], :name => "restaurant_id" %>
-  </p>
-  <p>
     <%= f.label :meal %><br />
     <%= select("menu", "meal_id", Meal.find(:all).collect { |m| [m.name, m.id] }, {}) %>
   </p>
@@ -21,6 +17,9 @@
     <%= f.label :duration %><br />
     <%= f.text_field :duration %>
   </p>
+
+  <%= f.hidden_field :restaurant_id, :value => params[:id], :name => "restaurant_id" %>
+
   <p>
     <%= f.submit "Create" %>
   </p>

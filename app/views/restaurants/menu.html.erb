@@ -1,8 +1,24 @@
 <h2 id="hspecials"><img src="../../images/restaurant/title_menus.gif" alt="Kategorie" /></h2>
 <div id="specials">
 
+<ul>
+<% for category in @category_list %>
+
+  <li><%= link_to Category.find(category.category_id).name, {:controller => "restaurants", :action => "menu", :id => @restaurant.id, :category => category.category_id} %></li>
+
+<% end %>
+</ul>
+
+
 <%= link_to 'Dodaj pozycję menu', {:controller => "restaurants", :action => "add_menu_to_restaurant", :id => @restaurant.id} %>
 
 </div><!-- end specials -->
+<br/>
+<br/>
+<% for menu in @restaurant_menu %>
 
-<%= image_tag @restaurant.photo.url(:medium) %>
+      Danie: <%=h menu.meal.name %><br/>
+      Rodzaj: <%=h menu.category.name %><br/>
+      <br/>
+
+<% end %>
