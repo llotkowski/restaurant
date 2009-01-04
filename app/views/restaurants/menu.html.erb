@@ -1,24 +1,28 @@
-<h2 id="hspecials"><img src="../../images/restaurant/title_menus.gif" alt="Kategorie" /></h2>
-<div id="specials">
+<div id="specials" >
+  <div class="header_menu" style="margin-left: -2px;">Menu</div>
 
-<ul>
-<% for category in @category_list %>
+  <ul>
+    <% for category in @category_list %>
 
-  <li><%= link_to Category.find(category.category_id).name, {:controller => "restaurants", :action => "menu", :id => @restaurant.id, :category => category.category_id} %></li>
+      <li><%= link_to Category.find(category.category_id).name, {:controller => "restaurants", :action => "menu", :id => @restaurant.id, :category => category.category_id} %></li>
 
-<% end %>
-</ul>
+    <% end %>
+  </ul>
 
 
-<%= link_to 'Dodaj pozycję menu', {:controller => "restaurants", :action => "add_menu_to_restaurant", :id => @restaurant.id} %>
+  <%= link_to 'Dodaj pozycję menu', {:controller => "restaurants", :action => "add_menu_to_restaurant", :id => @restaurant.id} %>
 
 </div><!-- end specials -->
-<br/>
-<br/>
-<% for menu in @restaurant_menu %>
+
+<div id="menu_body">
+  <div class="header_menu">Dania</div>
+  <div class="body_menu">
+    <% for menu in @restaurant_menu %>
 
       Danie: <%=h menu.meal.name %><br/>
       Rodzaj: <%=h menu.category.name %><br/>
       <br/>
 
-<% end %>
+    <% end %>
+  </div>
+</div>

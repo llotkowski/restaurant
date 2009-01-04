@@ -219,10 +219,32 @@ a:hover {
 
 #body #specials {
 	float: left;
-	width: 288px;
+	width: 285px;
+    height: auto;
 	margin: 0px 2px 0px 2px;
-	display: inline;
-    border-right: 1px solid white;
+}
+
+#body #menu_body {
+	float: right;
+	width: 489px;
+    height: auto;
+    border-left: 1px solid white;
+}
+
+.body_menu {
+   padding: 5px 10px 10px 10px;
+
+}
+
+.header_menu {
+    width: 479px;
+    height: 32px;
+	line-height: 32px;
+    color: #EFDCC9;
+    font-family: Georgia;
+    font-size: 17px;
+    padding-left: 10px;
+    background-color: #3B2000;
 }
 
 #body #events {
