@@ -144,11 +144,14 @@ class RestaurantsController < ApplicationController
   end
 
   def get_meal_of_the_day
-    @restaurant = Restaurant.find(params[:id])
+    
+    if(params[:id] != nil)
+      @restaurant = Restaurant.find(params[:id])
 
-    # Pobranie specjalności zakładu (3 najdroższe dania w danej restauracji)
-    @hot_menu = Menu.find(:all, :conditions => ['restaurant_id = ?', @restaurant.id])
-    @hot_menu = @hot_menu.sort_by{rand}.first(3)
+      # Pobranie specjalności zakładu (3 najdroższe dania w danej restauracji)
+      @hot_menu = Menu.find(:all, :conditions => ['restaurant_id = ?', @restaurant.id])
+      @hot_menu = @hot_menu.sort_by{rand}.first(3)
+    end
     
   end
 
