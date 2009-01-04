@@ -117,9 +117,9 @@ class RestaurantsController < ApplicationController
 
       # Pobranie Menu według wybranej kategorii lub domyślnie według pierwszej z listy
       if (params[:category] != nil)
-        @restaurant_menu = Menu.find(:all , :conditions => ['category_id = ?' , params[:category]], :order => "price asc")
+        @restaurant_menu = Menu.find(:all , :conditions => ['category_id = ?' , params[:category]])
       else
-        @restaurant_menu = Menu.find(:all , :conditions => ['category_id = ?' , @number], :order => "price asc")
+        @restaurant_menu = Menu.find(:all , :conditions => ['category_id = ?' , @number])
       end
     end
 
@@ -129,42 +129,16 @@ class RestaurantsController < ApplicationController
     @menu = Menu.new
 
     @restaurant = Restaurant.find(params[:id])
-
-    # Pobranie listy kategori do wyświetlenia w Menu danej restauracji (tylko te kategorie w których są przypisane dania)
-    @category_list = Menu.find(:all, :select => 'DISTINCT category_id', :conditions => ['restaurant_id = ?', @restaurant.id], :order => 'category_id asc')
-
   end
 
   # GET /restaurants/book/1
   def book
-    if params[:date].to_s == ""
-      date = Date.current.to_s
-    else
-      date = params[:date]
-    end
-
-    if params[:time].to_s == ""
-      time = Time.now.hour.to_s
-      if time.to_i < 11
-        time = 11
-      end
-      if time.to_i > 21
-        time = 21
-      end
-    else
-      time = params[:time]
-    end
-
     @restaurant = Restaurant.find(params[:id])
     @book = Book.new
     if session[:user]
       @book.user = User.find(session[:user])
     end
     @places = Place.find(:all, :conditions => ['restaurant_id = ?', @restaurant.id])
-
-    choosenTime = DateTime.parse(date.to_s+" "+time.to_s)
-
-    @places_choosen = Place.find(:all, :conditions => ['id in (select place_id from books where book_date = ? and place_id in (select id from places where restaurant_id = ?))', choosenTime, @restaurant.id])
   end
 
   # GET /restaurants/contact/1

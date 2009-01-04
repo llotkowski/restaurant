@@ -41,14 +41,21 @@ class BooksController < ApplicationController
   # POST /books.xml
   def create
     @book = Book.new(params[:book])
+    date = DateTime.parse(params[:date_picker].to_s+" "+params[:time_picker].to_s)
+    @place = Place.find(params[:place])
+    @book.book_date = date
+    @books = Book.find(:all, :conditions => ['book_date = ? and place_id = ?', @book.book_date, @place.id])
+    @book.place_id = @place.id
+    @restaurant = @place.restaurant
 
     respond_to do |format|
-      if @book.save
-        flash[:notice] = 'Book was successfully created.'
-        format.html { redirect_to(@book) }
+      if @books.length == 0 && @book.save
+        flash[:notice] = 'Rezerwacja przebiegła pomyślnie.'
+        format.html { redirect_to(:controller => "restaurants", :action => "book", :id => @restaurant.id, "date" => params[:date], "time" => params[:time]) }
         format.xml  { render :xml => @book, :status => :created, :location => @book }
       else
-        format.html { render :action => "new" }
+        flash[:notice] = 'Niestety ktoś już zarezerwował ten stolik w podanym terminie.'
+        format.html { redirect_to(:controller => "restaurants", :action => "book", :id => @restaurant.id) }
         format.xml  { render :xml => @book.errors, :status => :unprocessable_entity }
       end
     end

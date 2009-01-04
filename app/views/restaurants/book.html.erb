@@ -2,43 +2,102 @@
 # To change this template, choose Tools | Templates
 # and open the template in the editor.
 %>
+<% form_for(@book) do |f| %>
 
 <script type="text/javascript">
   $(document).ready(function(){
-    $("#dialog").dialog({
-  modal: true,
-  autoOpen: false
-    });
+  $("#date_picker").datepicker({ dateFormat: 'yy-mm-dd', minDate : new Date(<%= Date.current.year%>, <%= Date.current.month%> - 1, <%= Date.current.day %>) });
+  <% if flash[:notice] %>
+  document.getElementById('info_dialog').style.display = '';
+  $("#info_dialog").dialog({
+  modal:true,
   });
-function show_form() {
+  <% end %>
+  
+  $("#dialog").dialog({autoOpen : false, modal:true, resizable : false});
+  });
+function show_form(id) {
   document.getElementById('dialog').style.display = '';
+  document.forms[0].place.value = id;
   $('#dialog').dialog("open");
-}
+  
 
+}
+function reload() {
+  window.location = window.location.pathname +"?date="+ document.forms[0].date_picker.value+"&time="+document.forms[0].time_picker.value;
+}
 </script>
+<div id="info_dialog" title="Informacja" style="display : none;">
+<p><%= flash[:notice] %></p>
+<br/>
+<button class="ui-state-default ui-corner-all" type="button" onclick="$('#info_dialog').dialog('close');"> Ok </button>
+</div>
 
 <div id="dialog" title="Rezerwacja" style="display : none;">
-<% form_for(@book) do |f| %>
-<p>
-Proszę wybrać datę oraz godzinę rezerwacji:
-</p>  
-<p>
-    <%= f.datetime_select :book_date %>
+  <p>
+    Jesteś pewien, że chcesz dokonać rezerwacji?
   </p>
   <p>
-    <%= f.submit "Create" %>
+    <button class="ui-state-default ui-corner-all" type="button" onclick="document.forms[0].submit();"> Tak </button>
+    <button class="ui-state-default ui-corner-all" type="button" onclick="$('#dialog').dialog('close');"> Nie </button>
   </p>
-<% end %>
+
 </div>
 
 
 <div style="background-image : url('../../images/room_floor_background.png'); width : 100%; height : 400px;">
-<% for place in @places %>
-<% if place.number == 2%>
- <div onclick="show_form()" style="position : absolute; left : <%=place.x %>px; top : <%=place.y %>px"><img src="../../images/2_place.png" /></div>
-<% else %>
- <div onclick="show_form()" style="position : absolute; left : <%=place.x %>px; top : <%=place.y %>px"><img src="../../images/4_place.png" /></div>
-<% end %>
-<% end %>
+<div style="position : absolute; top : 10px; right : 10px;">
+<%
+if params[:date].to_s == ""
+   date = Date.current.to_s
+else
+   date = params[:date]
+end
 
+if params[:time].to_s == ""
+   time = Time.now.hour.to_s
+   if time.to_i < 11
+     time = 11
+   end
+   if time.to_i > 21
+     time = 21
+   end
+else
+   time = params[:time]
+end
+%>
+<input id="date_picker" name="date_picker" style="width : 70px;" value="<%= date %>"/>
+<select name="time_picker">
+<% for i in 11..21 %>
+<% 
+if i.to_s == time.to_s
+   selected = "selected = 'selected'"
+else
+   selected = ""
+end
+%>
+<option value="<%= i %>" <%= selected %> ><%= i %>:00</option>
+<% end %>
+</select>
+<button class="ui-state-default ui-corner-all" type="button" onclick="reload();"> Pokaż </button>
 </div>
+<input type="hidden" id="place" name="place" value="" ></input>
+<input type="hidden" id="date" name="date" value="<%= date %>" ></input>
+<input type="hidden" id="time" name="time" value="<%= time %>" ></input>
+<% for place in @places %>
+  <% if @places_choosen.include?(place) %>
+    <% if place.number == 2%>
+       <div style="position : absolute; left : <%=place.x %>px; top : <%=place.y %>px;"><img src="../../images/2_place_no.png" /></div>
+    <% else %>
+       <div style="position : absolute; left : <%=place.x %>px; top : <%=place.y %>px;"><img src="../../images/4_place_no.png" /></div>
+    <% end %>
+  <% else %>
+    <% if place.number == 2%>
+       <div onclick="show_form('<%=place.id %>')" style="position : absolute; left : <%=place.x %>px; top : <%=place.y %>px; cursor : pointer"><img src="../../images/2_place.png" /></div>
+    <% else %>
+       <div onclick="show_form('<%=place.id %>')" style="position : absolute; left : <%=place.x %>px; top : <%=place.y %>px; cursor : pointer"><img src="../../images/4_place.png" /></div>
+    <% end %>
+  <% end %>
+<% end %>
+</div>
+<% end %>
