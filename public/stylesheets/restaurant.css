@@ -228,12 +228,12 @@ a:hover {
 	float: right;
 	width: 489px;
     height: auto;
+    min-height: 290px;
     border-left: 1px solid white;
 }
 
 .body_menu {
    padding: 5px 10px 10px 10px;
-
 }
 
 .header_menu {
@@ -245,6 +245,18 @@ a:hover {
     font-size: 17px;
     padding-left: 10px;
     background-color: #3B2000;
+}
+
+.header_small_menu {
+    width: 280px;
+    height: 32px;
+	line-height: 32px;
+    color: #EFDCC9;
+    font-family: Georgia;
+    font-size: 17px;
+    padding-left: 10px;
+    background-color: #3B2000;
+    margin-left: -2px;
 }
 
 #body #events {

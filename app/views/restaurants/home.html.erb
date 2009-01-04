@@ -1,5 +1,6 @@
-<h2 id="hspecials"><img src="../../images/restaurant/title_menus.gif" alt="Our Special Menus" /></h2>
 <div id="specials">
+  <div class="header_small_menu" style="border-right: 1px solid white;">Specjalność zakładu</div>
+
   <div style="background-image: url(../../images/restaurant/picture_1.jpg);" class="imagebox">
     <h3><a href="http://www.freewebsitetemplates.com">Menu Name</a></h3>
     <p>Some demo text goes here. Some demo text goes here. Some demo text goes here.</p>
@@ -17,4 +18,9 @@
   </div>
 </div><!-- end specials -->
 
-<%= image_tag @restaurant.photo.url(:medium) %>
+<div id="menu_body">
+  
+  <div class="body_menu">
+    <%= image_tag @restaurant.photo.url(:medium) %>
+  </div>
+</div>
