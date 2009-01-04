@@ -41,29 +41,29 @@
         <div class="header_menu" style="width: 770px; border-top: 1px solid white;">Dania dnia</div>
 
         <% for menu in @hot_menu %>
-          <div style="background-image: url(../../images/restaurant/picture_4.jpg);" id="hot-one" class="imagebox">
-          <h3><a href="http://www.freewebsitetemplates.com"><%= menu.meal.name %> </a></h3>
-          <p>Some demo text goes here. Some demo text goes here. Some demo text goes here.</p>
-          <p class="readmore"><a href="http://www.freewebsitetemplates.com">... more</a></p>
-        </div>
+          <div id="hot-one" class="imagebox" style="width: 241px;">
+            <div style="float: left; padding-right: 8px;">
+              <%= image_tag menu.meal.meal_photo.url(:thumb), :size => '89x67' ,:class => 'image_border' %>
+            </div>
+            <div>
+              <h3><a href="http://www.freewebsitetemplates.com" style="font-size: 11px;"><%= menu.meal.name %> </a></h3>
+              <p>
+                <%= menu.meal.desc[0 .. 40] %>
+                <% if menu.meal.desc.size > 40 %>
+                  ...
+                <% end %>
+              </p>
+              <p class="readmore"><a href="http://www.freewebsitetemplates.com">... więcej</a></p>
+            </div>
+          </div>
 
         <% end %>
 
-
-
-        <div style="background-image: url(../../images/restaurant/picture_5.jpg);" id="hot-two" class="imagebox">
-          <h3><a href="http://www.freewebsitetemplates.com">Today's Hot Item Name</a></h3>
-          <p>Some demo text goes here. Some demo text goes here. Some demo text goes here.</p>
-          <p class="readmore"><a href="http://www.freewebsitetemplates.com">... more</a></p>
-        </div>
-        <div style="background-image: url(../../images/restaurant/picture_6.jpg);" id="hot-three" class="imagebox">
-          <h3><a href="http://www.freewebsitetemplates.com">Today's Hot Item Name</a></h3>
-          <p>Some demo text goes here. Some demo text goes here.</p>
-          <p class="readmore"><a href="http://www.freewebsitetemplates.com">... more</a></p>
-        </div>
         <div class="clear"></div>
       </div><!-- end hotstuff -->
+
     </div><!-- end wrapper -->
+
   <!-- Do not remove read http://www.freewebsitetemplates.com/termsofuse/ -->
     <div id="footer">
       Powered by <a href="http://www.freewebsitetemplates.com">Free Website Templates</a>

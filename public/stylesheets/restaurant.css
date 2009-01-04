@@ -319,11 +319,12 @@ a:hover {
 }
 
 #hotstuff .imagebox {
-	padding: 2px 8px 2px 103px;
+	padding: 2px 8px 2px 8px;
 	margin: 2px 0;
 	background: 4px no-repeat;
 	float: left;
-	width: 200px;
+	background-color: #906329;
+    margin-left: 2px;
 }
 
 #hotstuff #hot-one   { width: 180px; }

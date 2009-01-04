@@ -4,7 +4,7 @@
   <%  if(@special_menu.size == 0)%>
     <div style="font-size: 12px; padding: 10px 10px;">Brak dań</div>
   <% end %>
-  
+
   <% for menu in @special_menu %>
     <div class="imagebox">
       <div style="float: left; width: 90px; margin-right: 10px;">
@@ -12,7 +12,12 @@
       </div>
       <div>
         <h2><a href="/restaurant/show_meal/idrestauracji" style="font-size: 11px;"><%= menu.meal.name %></a></h2>
-        <p><%= menu.meal.desc %></p>
+        <p>
+          <%= menu.meal.desc[0 .. 40] %>
+          <% if menu.meal.desc.size > 40 %>
+            ...
+          <% end %>
+        </p>
         <p class="readmore"><a href="/restaurant/show_meal/idrestauracji">... więcej</a></p>
       </div>
     </div>
