@@ -1,16 +1,6 @@
-<h1>Editing cuisine</h1>
+<h2>Edycja rodzaju kuchni</h2>
 
-<% form_for(@cuisine) do |f| %>
-  <%= f.error_messages %>
+<%= render :partial => 'cuisine_form', :locals => { :button_name => "Edytuj"} %>
 
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.submit "Update" %>
-  </p>
-<% end %>
-
-<%= link_to 'Show', @cuisine %> |
-<%= link_to 'Back', cuisines_path %>
+<%= link_to 'Pokaż', @cuisine %> |
+<%= link_to 'Powrót', cuisines_path %>

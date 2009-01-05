@@ -1,20 +1,20 @@
-<h1>Listing cuisines</h1>
+<h2>Rodzaje kuchni</h2>
+<br/>
 
-<table>
+<table style="width: 240px;">
   <tr>
-    <th>Name</th>
+    <th>Nazwa</th>
   </tr>
 
-<% for cuisine in @cuisines %>
-  <tr>
-    <td><%=h cuisine.name %></td>
-    <td><%= link_to 'Show', cuisine %></td>
-    <td><%= link_to 'Edit', edit_cuisine_path(cuisine) %></td>
-    <td><%= link_to 'Destroy', cuisine, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+  <% for cuisine in @cuisines %>
+    <tr>
+      <td><%=h cuisine.name %></td>
+      <td><%= link_to image_tag("../images/signs/show.png", :title => "Szczegóły", :class => "icon"), cuisine %> </td>
+      <td><%= link_to image_tag("../images/signs/edit.png", :title => "Edycja", :class => "icon"), edit_cuisine_path(cuisine) %> </td>
+      <td><%= link_to image_tag("../images/signs/delete.png", :title => "Usuń", :class => "icon"), cuisine, :confirm => 'Na pewno?', :method => :delete %></td>
+    </tr>
+  <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New cuisine', new_cuisine_path %>
+<%= link_to image_tag("../images/signs/add.png", :class => "icon") %> <%= link_to 'Nowa kuchnia', new_cuisine_path %>

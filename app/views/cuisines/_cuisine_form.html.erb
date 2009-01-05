@@ -1,0 +1,11 @@
+<% form_for(@cuisine) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    Nazwa<br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.submit button_name %>
+  </p>
+<% end %>
