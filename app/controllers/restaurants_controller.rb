@@ -182,6 +182,16 @@ class RestaurantsController < ApplicationController
     @special_menu = Menu.find(:all, :conditions => ['restaurant_id = ?', @restaurant.id], :order => 'price desc', :limit => 3)
   end
 
+  # GET /restaurants/show_meal/1
+  def show_meal
+    @restaurant = Restaurant.find(params[:id])
+
+    # Pobranie listy kategori do wyświetlenia w Menu danej restauracji (tylko te kategorie w których są przypisane dania)
+    @category_list = Menu.find(:all, :select => 'DISTINCT category_id', :conditions => ['restaurant_id = ?', @restaurant.id], :order => 'category_id asc')
+
+    @menu_meal = Menu.find(params[:menu_id])
+  end
+
   def get_meal_of_the_day
 
     if(params[:id] != nil)

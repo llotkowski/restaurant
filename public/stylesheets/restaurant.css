@@ -369,3 +369,7 @@ a:hover {
 .icon {
     margin-bottom: -3px;
 }
+
+.meal_name {
+    font-size: 11px;
+}

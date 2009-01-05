@@ -36,7 +36,7 @@
             <td style="vertical-align: top; padding: 5px 10px;">
               <center>
                 <div style="font-weight: bold; font-size: 12px;">
-                  <%=h menu.meal.name %>
+                  <%= link_to menu.meal.name, {:controller => "restaurants", :action => "show_meal", :id => @restaurant.id, :menu_id => menu.id}, :class => "meal_name" %>
                 </div>
               </center>
               <div style="padding: 2px 0px 0px 0px;">

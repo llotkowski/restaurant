@@ -1,0 +1,53 @@
+<div id="specials" >
+  <div class="header_menu" style="margin-left: -2px;">Menu</div>
+
+  <ul>
+    <% for category in @category_list %>
+
+      <li style="padding-top: 5px; font-size: 12px; font-weight: bold;"><%= link_to Category.find(category.category_id).name, {:controller => "restaurants", :action => "menu", :id => @restaurant.id, :category => category.category_id}, :class => "no_underline" %></li>
+
+    <% end %>
+  </ul>
+
+  <div style="padding-left: 30px; font-size: 11px;">
+    <%= link_to 'Dodaj pozycję menu', {:controller => "restaurants", :action => "add_menu_to_restaurant", :id => @restaurant.id} %>
+  </div>
+
+</div><!-- end specials -->
+
+<div id="menu_body">
+  <div class="header_menu">
+    <% if !params[:category].nil? %>
+      <%= Category.find(params[:category]).name %>
+    <% else %>
+      Dania
+    <% end %>
+  </div>
+
+  <div class="body_menu">
+
+    <table width="100%">
+      <tr>
+        <td width="30px">
+          <%= image_tag @menu_meal.meal.meal_photo.url(:medium), :class => "image_border_menu" %>
+        </td>
+        <td style="vertical-align: top; padding: 5px 10px;">
+          <center>
+            <div style="font-weight: bold; font-size: 12px;">
+              <%=h @menu_meal.meal.name %>
+            </div>
+          </center>
+          <div style="padding: 2px 0px 0px 0px;">
+            <%=h @menu_meal.meal.desc %><br/><br />
+            <b>Składniki:</b> <%=h @menu_meal.meal.elements %><br /><br />
+            <b>Ilość:</b> <%=h @menu_meal.meal.amount %>  <%=h @menu_meal.meal.unit %><br/>
+            <b>Czas przygotowania:</b> <%=h @menu_meal.duration %> min <br />
+            <b>Cena:</b> <%=h @menu_meal.price %> zł
+          </div>
+        </td>
+       
+      </tr>
+    </table>
+
+  </div>
+</div>

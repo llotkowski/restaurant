@@ -55,14 +55,14 @@
               <%= image_tag menu.meal.meal_photo.url(:thumb), :size => '89x67' ,:class => 'image_border' %>
             </div>
             <div>
-              <h3><a href="http://www.freewebsitetemplates.com" style="font-size: 11px;"><%= menu.meal.name %> </a></h3>
+              <h3><%= link_to menu.meal.name, {:controller => "restaurants", :action => "show_meal", :id => @restaurant.id, :menu_id => menu.id}, :class => "meal_name" %></h3>
               <p>
                 <%= menu.meal.desc[0 .. 40] %>
                 <% if menu.meal.desc.size > 40 %>
                   ...
                 <% end %>
               </p>
-              <p class="readmore"><a href="http://www.freewebsitetemplates.com">... więcej</a></p>
+              <p class="readmore"><%= link_to '... więcej', {:controller => "restaurants", :action => "show_meal", :id => @restaurant.id, :menu_id => menu.id}, :class => "no_underline" %></p>
             </div>
           </div>
 
