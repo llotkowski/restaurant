@@ -2,7 +2,7 @@ class Restaurant < ActiveRecord::Base
   acts_as_mappable
 
   has_many :menus, :dependent => :destroy
-  has_many :places
+  has_many :places, :dependent => :destroy
 
   belongs_to :cuisine
 

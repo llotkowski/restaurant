@@ -129,6 +129,7 @@ class RestaurantsController < ApplicationController
   def places
     @restaurant = Restaurant.find(params[:id])
     @places = Place.find(:all, :conditions => ['restaurant_id = ?', @restaurant.id])
+    @place = Place.new
     render :layout => 'application'
   end
 
