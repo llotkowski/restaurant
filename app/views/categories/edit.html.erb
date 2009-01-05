@@ -1,16 +1,7 @@
-<h1>Editing category</h1>
+<h1>Edycja kategorii</h1>
 
-<% form_for(@category) do |f| %>
-  <%= f.error_messages %>
+<%= render :partial => 'category_form', :locals => { :button_name => "Edytuj"} %>
 
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.submit "Update" %>
-  </p>
-<% end %>
+<%= link_to image_tag("../images/signs/show.png", :title => "Szczegóły", :class => "icon"), @category %> |
+<%= link_to image_tag("../images/signs/back.png", :title => "Wstecz", :class => "icon"), categories_path %> <%= link_to 'Powrót', categories_path %>
 
-<%= link_to 'Show', @category %> |
-<%= link_to 'Back', categories_path %>

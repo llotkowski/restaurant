@@ -1,20 +1,22 @@
-<h1>Listing categories</h1>
+<h1>Lista kategorii posiłków</h1>
 
 <table>
   <tr>
-    <th>Name</th>
+    <th>Nazwa</th>
   </tr>
 
-<% for category in @categories %>
-  <tr>
-    <td><%=h category.name %></td>
-    <td><%= link_to 'Show', category %></td>
-    <td><%= link_to 'Edit', edit_category_path(category) %></td>
-    <td><%= link_to 'Destroy', category, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+  <% for category in @categories %>
+    <tr>
+      <td><%=h category.name %></td>
+      <td>
+        <%= link_to image_tag("../images/signs/show.png", :title => "Szczegóły", :class => "icon"),category %>
+        <%= link_to image_tag("../images/signs/edit.png", :title => "Edycja", :class => "icon"), edit_category_path(category) %> &nbsp;
+        <%= link_to image_tag("../images/signs/delete.png", :title => "Usuń", :class => "icon"), category, :confirm => 'Na pewno?', :method => :delete %>
+      </td>
+    </tr>
+  <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New category', new_category_path %>
+<%= link_to image_tag("../images/signs/add.png", :title => "Dodaj kategorię", :class => "icon"), new_category_path %><%= link_to "Dodaj kategorię", new_category_path %>
