@@ -40,18 +40,32 @@ class PlacesController < ApplicationController
   # POST /places
   # POST /places.xml
   def create
-    @place = Place.new(params[:place])
-
-    respond_to do |format|
-      if @place.save
-        flash[:notice] = 'Place was successfully created.'
-        format.html { redirect_to(@place) }
-        format.xml  { render :xml => @place, :status => :created, :location => @place }
+    blocks = params[:blocks].to_s.split(',')
+    delete = params[:to_delete].to_s.split(',')
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    for block in blocks
+      place = block.to_s.split(';')
+      if place[0].to_s.index('new').nil?
+        @place = Place.find(place[0])
+        @place.x = place[1]
+        @place.y = place[2]
+        @place.save
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @place.errors, :status => :unprocessable_entity }
+        @place = Place.new
+        @place.x = place[1]
+        @place.y = place[2]
+        @place.restaurant_id = @restaurant.id
+        @place.number = place[3]
+        @place.save
       end
     end
+
+    for block in delete
+      @place = Place.find(block)
+      @place.destroy
+    end
+
+    redirect_to(:controller => "restaurants", :action => "places", :id => @restaurant.id)
   end
 
   # PUT /places/1
