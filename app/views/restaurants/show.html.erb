@@ -1,32 +1,51 @@
-<h2>
-  <%=h @restaurant.name %>
-</h2>
-<br />
-<div style="min-height : 170px;">
-  <%= image_tag @restaurant.photo.url(:medium), :style => 'float : left; margin-right : 10px;' %>  <%=h @restaurant.desc %>
-</div>
-<p>
-  <b>Adres:</b>
-  <%=h @restaurant.address %>
-</p>
-<p>
-  <b>Rodzaj kuchni:</b>
-  <%=h @restaurant.cuisine.name %>
-</p>
-<p>
-  <b>Właściciel:</b>
-  <%=h @restaurant.owner %>
-</p>
-<p>
-  <b>Telefon:</b>
-  <%=h @restaurant.phone %>
-</p>
-<p>
-  <b>E-mail</b>
-  <%=h @restaurant.email %>
-</p>
 <center>
-<%= @map.div(:width => 600, :height => 400, :class => 'map') %>
+  <h2>
+    <%=h @restaurant.name %>
+  </h2>
 </center>
+
 <br />
-<%= link_to 'Wróć', restaurants_path %>
+<div style="min-height : 185px;">
+  <div style="padding-right: 15px; float: left;">
+    <%= image_tag @restaurant.photo.url(:medium), :class => 'image_border_menu' %>
+  </div>
+
+  <p>
+    <b>Właściciel:</b>
+    <%=h @restaurant.owner %>
+  </p>
+  <p>
+    <b>Rodzaj kuchni:</b>
+    <%=h @restaurant.cuisine.name %>
+  </p>
+  <p>
+    <b>Adres: </b>
+    ul. <%=h @restaurant.address %>
+  </p>
+  <p>
+    <b>Telefon:</b>
+    <%=h @restaurant.phone %>
+  </p>
+  <p>
+    <b>E-mail</b>
+    <%=h @restaurant.email %>
+  </p>
+  <br/>
+  <p>
+    <%= link_to image_tag("../images/signs/show.png", :title => "Szczegóły", :class => "icon"), restaurant_path(@restaurant) %> &nbsp;
+    <%= link_to image_tag("../images/signs/www.png", :title => "Strona WWW", :class => "icon"), {:controller => "restaurants", :action => "home", :id => @restaurant.id} %> &nbsp;
+    <%= link_to image_tag("../images/signs/edit.png", :title => "Edycja", :class => "icon"), edit_restaurant_path(@restaurant) %> &nbsp;
+    <%= link_to image_tag("../images/signs/delete.png", :title => "Usuń", :class => "icon"), @restaurant, :confirm => 'Are you sure?', :method => :delete %>
+  </p>
+</div>
+
+<p style="text-align: justify;">
+  <%=h @restaurant.desc %>
+</p>
+
+<center>
+  <%= @map.div(:width => 600, :height => 400, :class => 'map') %>
+</center>
+
+<br />
+<%= link_to image_tag("../images/signs/back.png", :title => "Wstecz", :class => "icon"), restaurants_path %>

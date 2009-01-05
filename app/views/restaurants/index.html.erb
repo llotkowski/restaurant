@@ -1,21 +1,34 @@
-<h1>Lista restauracji</h1>
-<br/ >
-  <table>
-  <% for restaurant in @restaurants %>
-    <tr>
-      <td width="110"><%= image_tag restaurant.photo.url(:thumb), :style => 'float : left; margin-right : 10px;' %> </td>
-      <td><b><%=h restaurant.name %></b><br />
-        <%=h restaurant.address %><br />
-        Telefon: <%=h restaurant.phone %><br/>
-        Kuchnia: <%=h restaurant.cuisine.name %><br/>
-        <%= link_to image_tag("../images/signs/show.png", :class => "icon"), restaurant_path(restaurant) %>
-        <%= link_to image_tag("../images/signs/www.png", :class => "icon"), {:controller => "restaurants", :action => "home", :id => restaurant.id} %>
-        <%= link_to image_tag("../images/signs/edit.png", :class => "icon"), edit_restaurant_path(restaurant) %>
-        <%= link_to image_tag("../images/signs/delete.png", :class => "icon"), restaurant, :confirm => 'Are you sure?', :method => :delete %></td>
-    </tr>
-  <% end %>
+<h2>Lista restauracji</h2>
+<br/>
+
+<table style="width: 100%">
+  <tr>
+    <% @count = 0 %>
+    <% for restaurant in @restaurants %>
+      <% @count = @count + 1 %>
+      <td width="50%">
+        <div style="float: left; padding-right: 12px;">
+          <%= image_tag restaurant.photo.url(:thumb), :class => 'image_border_menu' %>
+        </div>
+        <div><b><%=h restaurant.name %></b><br />
+          <%=h restaurant.address %><br />
+          Telefon: <%=h restaurant.phone %><br/>
+          Kuchnia: <%=h restaurant.cuisine.name %><br/>
+          <%= link_to image_tag("../images/signs/show.png", :title => "Szczegóły", :class => "icon"), restaurant_path(restaurant) %> &nbsp;
+          <%= link_to image_tag("../images/signs/www.png", :title => "Strona WWW", :class => "icon"), {:controller => "restaurants", :action => "home", :id => restaurant.id} %> &nbsp;
+          <%= link_to image_tag("../images/signs/edit.png", :title => "Edycja", :class => "icon"), edit_restaurant_path(restaurant) %> &nbsp;
+          <%= link_to image_tag("../images/signs/delete.png", :title => "Usuń", :class => "icon"), restaurant, :confirm => 'Are you sure?', :method => :delete %>
+
+        </div>
+      </td>
+
+      <%  if @count%2==0 %>
+      </tr><tr>
+      <% end %>
+    <% end %>
+  </tr>
 </table>
 
 <br />
 
- <%= link_to image_tag("../images/signs/add.png", :class => "icon") %> <%= link_to 'Dodaj restaurację', new_restaurant_path %>
+<%= link_to image_tag("../images/signs/add.png", :class => "icon") %> <%= link_to 'Dodaj restaurację', new_restaurant_path %>
