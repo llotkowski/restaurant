@@ -1,5 +1,6 @@
 class RestaurantsController < ApplicationController
   before_filter :get_meal_of_the_day
+  before_filter :check_authentication_admin, :only => "places"
 
   # GET /restaurants
   # GET /restaurants.xml
@@ -186,7 +187,7 @@ class RestaurantsController < ApplicationController
     @map.control_init(:small_map => true, :large_map => false, :map_type => false, :scale => false, :small_zoom => false, :overview_map => false, :local_search => false, :local_search_options => false )
     @map.center_zoom_init([loc.lat, loc.lng],15)
     @map.overlay_init(GMarker.new([loc.lat, loc.lng],:title => @restaurant.name, :info_window => @restaurant.popup_desc(@restaurant.photo.url(:thumb))))
-    
+
     # Pobranie specjalności zakładu (3 najdroższe dania w danej restauracji)
     @special_menu = Menu.find(:all, :conditions => ['restaurant_id = ?', @restaurant.id], :order => 'price desc', :limit => 3)
   end

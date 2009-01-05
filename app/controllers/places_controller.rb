@@ -64,7 +64,7 @@ class PlacesController < ApplicationController
       @place = Place.find(block)
       @place.destroy
     end
-
+    flash[:notice] = 'Zmiany zostały zapisane pomyślnie.'
     redirect_to(:controller => "restaurants", :action => "places", :id => @restaurant.id)
   end
 
