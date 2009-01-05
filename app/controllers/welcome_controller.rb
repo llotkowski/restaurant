@@ -8,11 +8,8 @@ class WelcomeController < ApplicationController
 
   #  Strona główna projektu (powitalna)
   def main
-    @restaurant = Restaurant.find(:all)
-    @random_restaurant = @restaurant.sort_by{rand}.first
-
-    @random_menu = Menu.find(:all, :conditions => ['restaurant_id = ?', @random_restaurant.id], :order => 'created_at desc' )
-    @random_menu = @random_menu.sort_by{rand}.first
+#     Pobranie losowego dania na stronę główną
+    @random_menu = Menu.find(:all).sort_by{rand}.first
   end
 
   #  Widok mapy z nałożonymi restauracjami lub w przypadku wyszukiwania wyselekcjionowane restauracje
