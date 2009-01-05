@@ -1,42 +1,68 @@
 <script type="text/javascript">
 $(document).ready(function(){
-  $(".block").draggable({containment:document.getElementById('container'), cursor : 'pointer'});
+  $(".block").draggable({containment:document.getElementById('container'), cursor : 'pointer', grid : [20, 20]});
 })
 var counter = 0;
-function add_place_4(){
+var remove = false;
+
+function add_place(number){
+  remove = false;
+  document.getElementById('button_remove').style.color = 'black';
   var container = document.getElementById('container');
   var html = container.innerHTML;
-  container.innerHTML = html + "<div id=\"new"+counter+"\" class=\"block\" style=\"position : absolute; top :100px; left : 100px; cursor : pointer\" ><img src=\"../../images/4_place.png\" /></div>";
-  $(".block").draggable({containment:document.getElementById('container'), cursor : 'pointer'});
-  $(document.getElementById('new'+counter)).effect("bounce", { times: 3 }, 300);
+  container.innerHTML = html 
+                        +"<div onclick=\"removeMe(this)\" id=\"new"
+                        +counter
+                        +"\" class=\"block\" style=\"position : absolute; top :100px; left : 100px; cursor : pointer\" ><img src=\"../../images/"
+                        +number
+                        +"_place.png\" /></div>";
+  $(".block").draggable({containment:document.getElementById('container'), cursor : 'pointer', grid : [20, 20]});
+  $(document.getElementById('new'+counter)).effect("bounce", { times: 2 }, 300);
   counter++;
 }
 
-function add_place_2(){
-  var container = document.getElementById('container');
-  var html = container.innerHTML;
-  container.innerHTML = html + "<div id=\"new"+counter+"\" class=\"block\" style=\"position : absolute; top :100px; left : 100px; cursor : pointer\" ><img src=\"../../images/2_place.png\" /></div>";
-  $(".block").draggable({containment:document.getElementById('container'), cursor : 'pointer'});
-  $(document.getElementById('new'+counter)).effect("bounce", { times: 3 }, 300);
-  counter++;
+function remove_place() {
+ if (remove) {
+  document.getElementById('button_remove').style.color = 'black';
+  remove = false;
+ } else {
+  document.getElementById('button_remove').style.color = 'red';
+  remove = true;
+ }
+}
+
+function removeMe(element) {
+ if(remove) {
+   element.innerHTML = '';
+   element.className = 'toDelete';
+ } else {
+   return;
+ }
 }
 </script>
 
 
-<h1>Konfiguracja układu sali</h2>
+<h1>Konfiguracja układu sali (Drag&Drop)</h2>
+<br/>
 <br/>
 Dodaj stolik :
-<button class="ui-state-default ui-corner-all" type="button" onclick="add_place_4()"> 4 osobowy </button>
-<button class="ui-state-default ui-corner-all" type="button" onclick="add_place_2()"> 2 osobowy </button>
+<button class="ui-state-default ui-corner-all" type="button" onclick="add_place('4')"> 4 osobowy </button>
+<button class="ui-state-default ui-corner-all" type="button" onclick="add_place('2')"> 2 osobowy </button>
+ | 
+<button id="button_remove" class="ui-state-default ui-corner-all" type="button" onclick="remove_place()"> Usuń stolik </button>
 <br/>
 <br/>
 <div id="container" style="background-image : url('../../images/room_floor_background.png'); border-width : 5px; border-style:solid; width : 100%; height : 400px; position : relative">
 <% for place in @places %>
    <% if place.number == 2%>
-       <div id="<%=place.id %>" class="block" style="left : <%= place.x %>px; top : <%= place.y %>px; position : absolute;cursor : pointer"><img src="../../images/2_place.png" /></div>
+       <div id="<%=place.id %>" onclick="removeMe(this)" class="block" style="left : <%= place.x %>px; top : <%= place.y %>px; position : absolute;cursor : pointer">
+	 <img src="../../images/2_place.png" />
+       </div>
     <% else %>
-       <div id="<%=place.x %>" class="block" style="left : <%= place.x %>px; top : <%= place.y %>px; position : absolute; cursor : pointer"><img src="../../images/4_place.png" /></div>
-  <% end %>
+       <div id="<%=place.x %>" onclick="removeMe(this)" class="block" style="left : <%= place.x %>px; top : <%= place.y %>px; position : absolute; cursor : pointer">
+	 <img src="../../images/4_place.png" />
+       </div>
+    <% end %>
 <% end %>
 
 </div>
