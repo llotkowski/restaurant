@@ -30,7 +30,7 @@ class WelcomeController < ApplicationController
     for restaurant in @restaurants
       loc = GeoKit::Geocoders::GoogleGeocoder.geocode(restaurant.address)
       @map.control_init(:large_map => true,:map_type => true)
-      @map.overlay_init(GMarker.new([loc.lat, loc.lng],:title => restaurant.name, :info_window => restaurant.popup_desc))
+      @map.overlay_init(GMarker.new([loc.lat, loc.lng],:title => restaurant.name, :info_window => restaurant.popup_desc(restaurant.photo.url(:thumb))))
     end
   end
 
