@@ -19,6 +19,14 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def check_authentication_book
+    unless session[:user]
+      session[:intended_action] = action_name
+      session[:intended_controller] = controller_name
+      redirect_to( :controller => "login", :action => "index", :id => params[:id], :layout => "restaurants" )
+    end
+  end
+
   def check_authentication
     unless session[:user]
       session[:intended_action] = action_name
@@ -42,15 +50,14 @@ class ApplicationController < ActionController::Base
 
   def is_admin
     unless session[:user]
-      session[:intended_action] = action_name
-      session[:intended_controller] = controller_name
       return false;
     else
       user = User.find(session[:user])
-      unless user.isadmin == "true"
+      if user.isadmin.to_s == "true"
         return true;
+      else
+        return false;
       end
-      return false;
     end
   end
 

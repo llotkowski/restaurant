@@ -30,6 +30,11 @@
           <li><%= link_to 'STRONA GŁÓWNA', {:controller => "welcome", :action => "main"} %></li>
         </ul><!-- end nav -->
         <div id="welcome">
+	  <div style="position : absolute; top : 10px; right : 10px;">
+	    <% if session[:user]%>
+	    <a href="/login/logout_restaurant/<%= params[:id] %>"><b>Wyloguj się</b></a>
+	    <% end %>
+	  </div>
           <h2><img src="../../images/restaurant/title_welcome.gif" alt="Welcome to our Restaurant" /></h2>
           <p>
             <%= @restaurant.desc%>

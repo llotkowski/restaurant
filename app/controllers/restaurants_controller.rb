@@ -1,12 +1,13 @@
 class RestaurantsController < ApplicationController
   before_filter :get_meal_of_the_day
   before_filter :check_authentication_admin, :only => "places"
+  before_filter :check_authentication_book, :only => "book"
 
   # GET /restaurants
   # GET /restaurants.xml
   def index
     @restaurants = Restaurant.find(:all)
-
+    @is_admin = is_admin()
     respond_to do |format|
       format.html { render :layout => 'application' } # index.html.erb
       format.xml  { render :xml => @restaurants }

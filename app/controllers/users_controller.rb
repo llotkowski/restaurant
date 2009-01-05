@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :check_authentication_admin
+#  before_filter :check_authentication_admin
 
   # GET /users
   # GET /users.xml

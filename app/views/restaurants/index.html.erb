@@ -16,9 +16,12 @@
           Kuchnia: <%=h restaurant.cuisine.name %><br/>
           <%= link_to image_tag("../images/signs/show.png", :title => "Szczegóły", :class => "icon"), restaurant_path(restaurant) %> &nbsp;
           <%= link_to image_tag("../images/signs/www.png", :title => "Strona WWW", :class => "icon"), {:controller => "restaurants", :action => "home", :id => restaurant.id} %> &nbsp;
+	  <% if @is_admin %>
+	  <%= link_to image_tag("../images/signs/house.png", :title => "Konfigurator sali", :class => "icon"), {:controller => "restaurants", :action => "places", :id => restaurant.id} %> &nbsp;
           <%= link_to image_tag("../images/signs/edit.png", :title => "Edycja", :class => "icon"), edit_restaurant_path(restaurant) %>
+	  &nbsp;
           <%= link_to image_tag("../images/signs/delete.png", :title => "Usuń", :class => "icon"), restaurant, :confirm => 'Na pewno?', :method => :delete %>
-
+	  <% end %>
         </div>
       </td>
 

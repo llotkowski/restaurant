@@ -44,6 +44,7 @@ class BooksController < ApplicationController
     date = DateTime.parse(params[:date_picker].to_s+" "+params[:time_picker].to_s)
     @place = Place.find(params[:place])
     @book.book_date = date
+    @book.user_id = session[:user]
     @books = Book.find(:all, :conditions => ['book_date = ? and place_id = ?', @book.book_date, @place.id])
     @book.place_id = @place.id
     @restaurant = @place.restaurant

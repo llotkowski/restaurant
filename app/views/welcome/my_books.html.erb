@@ -1,2 +1,11 @@
 <h2>Moje rezerwacje</h2>
 <br/>
+<ul style="margin-left : 40px;">
+    <% for book in @books %>
+      <% 
+	 place = Place.find(book.place_id)
+	 rest = Restaurant.find(place.restaurant_id);
+	 %>
+      <li><%= book.book_date.strftime("%Y-%m-%d %H:%M") %> - <a href="<%= restaurant_path(rest)%>"><%= rest.name %></a></li>
+    <% end %>
+</ul>
