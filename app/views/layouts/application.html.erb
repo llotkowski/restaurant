@@ -17,7 +17,20 @@
     <% else %>
      <%= @map.to_html %>
     <%  end    %>
-
+    <script>
+      $(document).ready(function(){
+      <% if flash[:notice] %>
+      document.getElementById('info_dialog').style.display = '';
+      $("#info_dialog").dialog({
+      modal:true,
+      resizable:false
+      });
+      $('#b_closer').click(function(){
+      $('#info_dialog').dialog('close');
+      });
+      <% end %>
+      })
+    </script>
   </head>
   <body>
   <div id="wrapper">
@@ -47,7 +60,11 @@
       </div>
     </div>
     <div id="body">
-      <center><p style="color: green"><%= flash[:notice] %></p></center>
+      <div id="info_dialog" title="Informacja" style="display : none; font-size : small">
+	<p><%= flash[:notice] %></p>
+	<br/>
+	<button id="b_closer" class="ui-state-default ui-corner-all" type="button"> Ok </button>
+      </div>
       <%= yield  %>
       <br/>
       <br/>

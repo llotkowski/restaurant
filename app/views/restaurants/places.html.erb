@@ -85,11 +85,18 @@ function removeMe(element) {
 <h1>Konfiguracja układu sali (Drag&Drop)</h2>
 <br/>
 <br/>
+<% form_for(@place) do |f| %>
+  <input type="hidden" name="blocks" value="" />
+  <input type="hidden" name="restaurant_id" value="<%= params[:id] %>" />
+  <input type="hidden" name="to_delete" value="" />
+    <button class="ui-state-default ui-corner-all" type="button" onclick="save_config()"> Zapisz </button>
+
+ | 
 <button class="ui-state-default ui-corner-all" type="button" onclick="add_place('4')"> 4 osobowy </button>
 <button class="ui-state-default ui-corner-all" type="button" onclick="add_place('2')"> 2 osobowy </button>
  | 
 <button id="button_remove" class="ui-state-default ui-corner-all" type="button" onclick="remove_place()"> Usuń stolik </button>
-<br/>
+<% end %>
 <br/>
 <div id="container" style="background-image : url('../../images/room_floor_background.png'); border-width : 5px; border-style:solid; width : 100%; height : 400px; position : relative">
 <% for place in @places %>
@@ -104,11 +111,4 @@ function removeMe(element) {
     <% end %>
 <% end %>
 </div>
-<% form_for(@place) do |f| %>
-  <input type="hidden" name="blocks" value="" />
-  <input type="hidden" name="restaurant_id" value="<%= params[:id] %>" />
-  <input type="hidden" name="to_delete" value="" />
-  <p>
-    <button class="ui-state-default ui-corner-all" type="button" onclick="save_config()"> Zapisz </button>
-  </p>
-<% end %>
+

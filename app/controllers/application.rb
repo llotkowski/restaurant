@@ -40,17 +40,29 @@ class ApplicationController < ActionController::Base
     end
   end
 
-#  def check_authentication_movies
-#    if params[:view] == 'now'
-#    elsif params[:view] == 'coming'
-#    else
-#      unless session[:user]
-#        session[:intended_action] = action_name
-#        session[:intended_controller] = controller_name
-#        redirect_to :controller => "login", :action => "index", "view" => params[:view]
-#      end
-#    end
-#  end
+  def is_admin
+    unless session[:user]
+      session[:intended_action] = action_name
+      session[:intended_controller] = controller_name
+      return false;
+    else
+      user = User.find(session[:user])
+      unless user.isadmin == "true"
+        return true;
+      end
+      return false;
+    end
+  end
+
+  def is_logged
+    unless session[:user]
+      session[:intended_action] = action_name
+      session[:intended_controller] = controller_name
+      return false;
+    else
+      return true;
+    end
+  end
 
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
