@@ -1,17 +1,18 @@
 class WelcomeController < ApplicationController
   protect_from_forgery :only => [:create, :update, :destroy]
 
-#  O projekcie (informacje)
+  #  O projekcie (informacje)
   def about
 
   end
 
-#  Strona główna projektu (powitalna)
+  #  Strona główna projektu (powitalna)
   def main
-
+#     Pobranie losowego dania na stronę główną
+    @random_menu = Menu.find(:all).sort_by{rand}.first
   end
 
-#  Widok mapy z nałożonymi restauracjami lub w przypadku wyszukiwania wyselekcjionowane restauracje
+  #  Widok mapy z nałożonymi restauracjami lub w przypadku wyszukiwania wyselekcjionowane restauracje
   def show
     if params[:city].nil?
       @title = "Nasze restauracje"
@@ -30,16 +31,16 @@ class WelcomeController < ApplicationController
     for restaurant in @restaurants
       loc = GeoKit::Geocoders::GoogleGeocoder.geocode(restaurant.address)
       @map.control_init(:large_map => true,:map_type => true)
-      @map.overlay_init(GMarker.new([loc.lat, loc.lng],:title => restaurant.name, :info_window => restaurant.popup_desc))
+      @map.overlay_init(GMarker.new([loc.lat, loc.lng],:title => restaurant.name, :info_window => restaurant.popup_desc(restaurant.photo.url(:thumb))))
     end
   end
 
-#  Administracja
+  #  Administracja
   def admin
 
   end
 
-#  Moje rezerwacje
+  #  Moje rezerwacje
   def my_books
 
   end

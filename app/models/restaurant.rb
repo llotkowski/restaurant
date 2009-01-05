@@ -23,8 +23,8 @@ class Restaurant < ActiveRecord::Base
     street+" "+number+" "+city
   end
 
-  def popup_desc
-    "<h2>"+name+"</h2><br/><b>Adres:</b><br/>ul. "+street+" "+number+" "+city+"<br /><br/><b><a href=\"/restaurants/home/"+id.to_s+"\">Wejdź na stronę</b>"
+  def popup_desc(photo_url)
+    "<table><tr><td><img src="+photo_url+" alt="+name+"/></td><td><p style='font-size: 12px; font-weight: bold;'>"+name+"</p><b>Adres:</b><br/>"+city+"<br/>ul. "+street+" "+number+"</td></tr><tr><td><b><a href=\"/restaurants/home/"+id.to_s+"\">Wejdź na stronę</b></td></tr></table>"
   end
 
   def location

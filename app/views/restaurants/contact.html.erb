@@ -3,14 +3,23 @@
 <div id="menu_body">
   <div class="header_menu">Dane kontaktowe:</div>
   <div class="body_menu">
-    <br/>
-    <p>Właściciel: <%= @restaurant.owner %></p><br/>
-    <p><%= @restaurant.city %></p>
-    <p>ul. <%= @restaurant.street %> <%=  @restaurant.number %></p>
-    <p>Telefon: <%= @restaurant.phone %></p>
-    <p>E-mail: <%= @restaurant.email %></p>
 
-    <%= image_tag @restaurant.photo.url(:thumb) %>
-    
+    <div style="float: left;padding-top: 10px;">
+      <p>Właściciel <br/><strong><%= @restaurant.owner %></strong></p><br/><br/>
+      
+      <p><strong>Adres:</strong></p><br/>
+
+      <p><%= @restaurant.city %></p>
+      <p>ul. <%= @restaurant.street %> <%=  @restaurant.number %></p>
+      <p>Telefon: <%= @restaurant.phone %></p>
+      <p>E-mail:
+        <%=  mail_to @restaurant.email, @restaurant.email, :subject => "This is an example email"%>
+      </p>
+    </div>
+
+    <div style="float: right;">
+      <%= @map.div(:width => 340, :height => 240, :class => 'map') %>
+    </div>
+
   </div>
 </div>

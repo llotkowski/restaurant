@@ -10,7 +10,7 @@
   </ul>
 
   <div style="padding-left: 30px; font-size: 11px;">
-    <%= link_to 'Dodaj pozycję menu', {:controller => "restaurants", :action => "add_menu_to_restaurant", :id => @restaurant.id} %>
+    <%= link_to image_tag("../images/signs/add.png", :class => "icon"), {:controller => "restaurants", :action => "add_menu_to_restaurant", :id => @restaurant.id} %> <%= link_to 'Dodaj pozycję menu', {:controller => "restaurants", :action => "add_menu_to_restaurant", :id => @restaurant.id} %>
   </div>
 
 </div><!-- end specials -->

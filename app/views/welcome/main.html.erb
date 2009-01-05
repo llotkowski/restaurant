@@ -1,5 +1,5 @@
 <div id="left">
- 
+
   <div id="chef">
     <h2>Witamy!</h2>
     <p>Witamy w najlepszej sieci restauracji w Polsce. U nas zawsze zjesz najlepiej i najtaniej.</p>
@@ -12,19 +12,21 @@
     <h2>Szukaj restauracji</h2>
     <form action="/welcome/show" method="post" accept-charset="utf-8">
       <center>
-      <table border="0" cellspacing="2" cellpadding="0">
-        <tr><td><b>Miejscowość</b></td><td><input type="text" name="city" value="" class="text" /></td></tr>
-        <tr><td><b>Ulica</b></td><td><input type="text" name="street" class="text" value="" /></td></tr>
-        <tr><td class="submission" colspan="2"><input type="submit" name="action" value="Szukaj" /></td></tr>
-      </table>
+        <table border="0" cellspacing="2" cellpadding="0">
+          <tr><td><b>Miejscowość</b></td><td><input type="text" name="city" value="" class="text" /></td></tr>
+          <tr><td><b>Ulica</b></td><td><input type="text" name="street" class="text" value="" /></td></tr>
+          <tr><td class="submission" colspan="2"><input type="submit" name="action" value="Szukaj" /></td></tr>
+        </table>
       </center>
     </form>
   </div>
   <div id="menu">
-    <h2>Dziś polecamy</h2>
-    <p>If you're having problems editing the template  ask for help on <a href="http://www.freewebsitetemplates.com/forum/">the forum</a>.</p>
-    <form action="" method="get" accept-charset="utf-8">
-      <p><input type="submit" value="Szczegóły"></p>
-    </form>
+    <h2 style="margin-top: -5px;">Losowe danie</h2>
+    <div>
+    <%= link_to image_tag(@random_menu.meal.meal_photo.url(:thumb), :size => "89x67", :class => "image_border_menu"), {:controller => "restaurants", :action => "show_meal", :id => @random_menu.restaurant.id, :menu_id => @random_menu.id}, :class => "meal_name_biger" %><br />
+    </div>
+    <div style="margin: 5px 0px 5px -27px;">
+      <%= button_to "Szczegóły", {:controller => "restaurants", :action => "show_meal", :id => @random_menu.id, :menu_id => @random_menu.id}%>
+    </div>
   </div>
 </div>
