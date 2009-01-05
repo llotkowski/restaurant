@@ -52,7 +52,7 @@
         <% for menu in @hot_menu %>
           <div id="hot-one" class="imagebox" style="width: 241px;">
             <div style="float: left; padding-right: 8px;">
-              <%= image_tag menu.meal.meal_photo.url(:thumb), :size => '89x67' ,:class => 'image_border' %>
+              <%= link_to image_tag(menu.meal.meal_photo.url(:thumb), :size => "80x75", :class => "image_border_menu"), {:controller => "restaurants", :action => "show_meal", :id => @restaurant.id, :menu_id => menu.id}, :class => "meal_name_biger" %>
             </div>
             <div>
               <h3><%= link_to menu.meal.name, {:controller => "restaurants", :action => "show_meal", :id => @restaurant.id, :menu_id => menu.id}, :class => "meal_name" %></h3>

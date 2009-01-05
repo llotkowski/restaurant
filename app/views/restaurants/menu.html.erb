@@ -10,7 +10,7 @@
   </ul>
 
   <div style="padding-left: 30px; font-size: 11px;">
-    <%= link_to 'Dodaj pozycję menu', {:controller => "restaurants", :action => "add_menu_to_restaurant", :id => @restaurant.id} %>
+    <%= link_to image_tag("../images/signs/add.png", :class => "icon"), {:controller => "restaurants", :action => "add_menu_to_restaurant", :id => @restaurant.id} %> <%= link_to 'Dodaj pozycję menu', {:controller => "restaurants", :action => "add_menu_to_restaurant", :id => @restaurant.id} %>
   </div>
 
 </div><!-- end specials -->
@@ -31,12 +31,12 @@
         <% for menu in @restaurant_menu %>
           <tr>
             <td width="30px">
-              <%= image_tag menu.meal.meal_photo.url(:thumb), :size => "80x75", :class => "image_border_menu" %>
+              <%= link_to image_tag(menu.meal.meal_photo.url(:thumb), :size => "80x75", :class => "image_border_menu"), {:controller => "restaurants", :action => "show_meal", :id => @restaurant.id, :menu_id => menu.id}, :class => "meal_name_biger" %>
             </td>
             <td style="vertical-align: top; padding: 5px 10px;">
               <center>
                 <div style="font-weight: bold; font-size: 12px;">
-                  <%= link_to menu.meal.name, {:controller => "restaurants", :action => "show_meal", :id => @restaurant.id, :menu_id => menu.id}, :class => "meal_name" %>
+                  <%= link_to menu.meal.name, {:controller => "restaurants", :action => "show_meal", :id => @restaurant.id, :menu_id => menu.id}, :class => "meal_name_bigger" %>
                 </div>
               </center>
               <div style="padding: 2px 0px 0px 0px;">

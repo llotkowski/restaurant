@@ -10,7 +10,7 @@
   </ul>
 
   <div style="padding-left: 30px; font-size: 11px;">
-    <%= link_to 'Dodaj pozycję menu', {:controller => "restaurants", :action => "add_menu_to_restaurant", :id => @restaurant.id} %>
+    <%= link_to image_tag("../images/signs/add.png", :class => "icon"), {:controller => "restaurants", :action => "add_menu_to_restaurant", :id => @restaurant.id} %> <%= link_to 'Dodaj pozycję menu', {:controller => "restaurants", :action => "add_menu_to_restaurant", :id => @restaurant.id} %>
   </div>
 
 </div><!-- end specials -->
@@ -33,12 +33,12 @@
       </p>
       <br/>
       <p>
-        Cena 
+        Cena
         <%= f.text_field :price, :size => "8" %> zł
       </p>
       <br/>
       <p>
-        Czas przygotowania 
+        Czas przygotowania
         <%= select("menu", "duration", %w[5 10 15 20 25 30 35 40 45 50 55 60], {}) %>
       </p>
       <br/>

@@ -3,6 +3,8 @@
 <div id="menu_body">
 
   <div class="body_menu">
-    <%= image_tag @restaurant.photo.url(:medium) %>
+    <center>
+      <%= image_tag @restaurant.photo.url(:original), :size => "400x270", :class => "image_border_home" %>
+    </center>
   </div>
 </div>

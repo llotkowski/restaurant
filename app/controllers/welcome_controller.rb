@@ -1,17 +1,21 @@
 class WelcomeController < ApplicationController
   protect_from_forgery :only => [:create, :update, :destroy]
 
-#  O projekcie (informacje)
+  #  O projekcie (informacje)
   def about
 
   end
 
-#  Strona główna projektu (powitalna)
+  #  Strona główna projektu (powitalna)
   def main
+    @restaurant = Restaurant.find(:all)
+    @random_restaurant = @restaurant.sort_by{rand}.first
 
+    @random_menu = Menu.find(:all, :conditions => ['restaurant_id = ?', @random_restaurant.id], :order => 'created_at desc' )
+    @random_menu = @random_menu.sort_by{rand}.first
   end
 
-#  Widok mapy z nałożonymi restauracjami lub w przypadku wyszukiwania wyselekcjionowane restauracje
+  #  Widok mapy z nałożonymi restauracjami lub w przypadku wyszukiwania wyselekcjionowane restauracje
   def show
     if params[:city].nil?
       @title = "Nasze restauracje"
@@ -34,12 +38,12 @@ class WelcomeController < ApplicationController
     end
   end
 
-#  Administracja
+  #  Administracja
   def admin
 
   end
 
-#  Moje rezerwacje
+  #  Moje rezerwacje
   def my_books
 
   end
