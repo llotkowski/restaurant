@@ -25,7 +25,7 @@
 
       <p>
         Danie <br/>
-        <%= select("menu", "meal_id", Meal.find(:all).collect { |m| [m.name, m.id] }, {}) %>
+        <%= select("menu", "meal_id", Meal.find(:all, :order => "name ASC").collect { |m| [m.name + " (" + m.elements + ") - " + m.amount.to_s + " " + m.unit, m.id] }, {}) %>
       </p>
       <br/>
       <p>
