@@ -42,7 +42,7 @@ class WelcomeController < ApplicationController
 
   #  Moje rezerwacje
   def my_books
-    @books = Book.find(:all, :conditions => ['user_id = ?', session[:user]])
+    @books = Book.find(:all, :conditions => ['user_id = ?', session[:user]], :order => "book_date ASC")
   end
 
 end

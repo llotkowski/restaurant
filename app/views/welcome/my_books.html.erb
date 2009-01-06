@@ -1,11 +1,20 @@
 <h2>Moje rezerwacje</h2>
 <br/>
 <ul style="margin-left : 40px;">
-    <% for book in @books %>
-      <% 
-	 place = Place.find(book.place_id)
-	 rest = Restaurant.find(place.restaurant_id);
-	 %>
-      <li><%= book.book_date.strftime("%Y-%m-%d %H:%M") %> - <a href="<%= restaurant_path(rest)%>"><%= rest.name %></a></li>
+  <% for book in @books %>
+    <%
+    place = Place.find(book.place_id)
+    rest = Restaurant.find(place.restaurant_id);
+  %>
+  <li>
+    <% if(book.book_date.day <= DateTime::now().day && book.book_date.time - 60*60 <= DateTime::now()) %>
+      <div style="color: red; display: inline;">
+    <% elsif(book.book_date.day == DateTime::now().day) %>
+      <div style="color: yellow; display: inline;">
+    <% else %>
+      <div style="color: green; display: inline;">
     <% end %>
+    <b><%= book.book_date.strftime("%Y-%m-%d %H:%M") %></b></div> - <a href="<%= restaurant_path(rest)%>"><%= rest.name %></a> (miejsc <%= place.number %>) </li>
+  <% end %>
 </ul>
+
