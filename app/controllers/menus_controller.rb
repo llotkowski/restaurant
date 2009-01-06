@@ -2,7 +2,7 @@ class MenusController < ApplicationController
   # GET /menus
   # GET /menus.xml
   def index
-    @menus = Menu.find(:all)
+    @menus = Menu.find(:all, :order => "restaurant_id ASC")
 
     respond_to do |format|
       format.html # index.html.erb

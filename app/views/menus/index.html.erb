@@ -1,12 +1,16 @@
-<h1>Listing menus</h1>
+<h2>Lista menu</h2>
+<br/>
 
-<table>
+<table style="width: 100%;" cellpadding="0" cellspacing="0">
   <tr>
-    <th>Restaurant</th>
-    <th>Meal</th>
-    <th>Category</th>
-    <th>Price</th>
-    <th>Duration</th>
+    <th>Restauracja</th>
+    <th>Danie</th>
+    <th>Kategoria menu</th>
+    <th>Cena</th>
+    <th>Czas</th>
+    <th>Pokaż</th>
+    <th>Edytuj</th>
+    <th>Usuń</th>
   </tr>
 
 <% for menu in @menus %>
@@ -14,15 +18,14 @@
     <td><%=h menu.restaurant.name %></td>
     <td><%=h menu.meal.name %></td>
     <td><%=h menu.category.name %></td>
-    <td><%=h menu.price %></td>
-    <td><%=h menu.duration %></td>
-    <td><%= link_to 'Show', menu %></td>
-    <td><%= link_to 'Edit', edit_menu_path(menu) %></td>
-    <td><%= link_to 'Destroy', menu, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+    <td><%=h menu.price %> zł</td>
+    <td><%=h menu.duration %> min</td>
+    <td style="text-align: center;"><%= link_to image_tag("../images/signs/show.png", :class => "icon"), menu %></td>
+    <td style="text-align: center;"><%= link_to image_tag("../images/signs/edit.png", :class => "icon"), edit_menu_path(menu) %></td>
+    <td style="text-align: center;"><%= link_to image_tag("../images/signs/delete.png", :class => "icon"),  menu, :confirm => 'Czy aby na pewno?', :method => :delete %></td>
+    </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New menu', new_menu_path %>
+<%= image_tag("../images/signs/add.png", :class => "icon") %> <%= link_to 'Dodaj menu', new_menu_path %>

@@ -2,24 +2,24 @@
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :restaurant %><br />
+    Restauracja<br />
     <%= select("menu", "restaurant_id", Restaurant.find(:all).collect { |r| [r.name, r.id] }, {}) %>
   </p>
   <p>
-    <%= f.label :meal %><br />
-    <%= select("menu", "meal_id", Meal.find(:all).collect { |m| [m.name, m.id] }, {}) %>
+    Danie<br />
+    <%= select("menu", "meal_id", Meal.find(:all, :order => "name ASC").collect { |m| [m.name + " (" + m.elements + ") - " + m.amount.to_s + " " + m.unit, m.id] }, {}) %>
   </p>
   <p>
-    <%= f.label :category %><br />
+    Kategoria menu<br />
     <%= select("menu", "category_id", Category.find(:all).collect { |c| [c.name, c.id] }, {}) %>
   </p>
   <p>
-    <%= f.label :price %><br />
-    <%= f.text_field :price %>
+    Cena<br />
+    <%= f.text_field :price, :size => 8 %> zł
   </p>
   <p>
-    <%= f.label :duration %><br />
-    <%= f.text_field :duration %>
+    Czas oczekiwania<br />
+    <%= select("menu", "duration", %w[5 10 15 20 25 30 35 40 45 50 55 60], {}) %>
   </p>
   <p>
     <%= f.submit button_name %>

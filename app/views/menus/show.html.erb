@@ -1,28 +1,28 @@
 <p>
-  <b>Restaurant:</b>
+  <b>Restauracja:</b>
   <%=h @menu.restaurant.name %>
 </p>
 
 <p>
-  <b>Meal:</b>
+  <b>Danie:</b>
   <%=h @menu.meal.name %>
 </p>
 
 <p>
-  <b>Category:</b>
+  <b>Kategoria menu:</b>
   <%=h @menu.category.name %>
 </p>
 
 <p>
-  <b>Price:</b>
-  <%=h @menu.price %>
+  <b>Cena:</b>
+  <%=h @menu.price %> zł
 </p>
 
 <p>
-  <b>Duration:</b>
-  <%=h @menu.duration %>
+  <b>Czas oczekiwania:</b>
+  <%=h @menu.duration %> min.
 </p>
 
 
-<%= link_to 'Edit', edit_menu_path(@menu) %> |
-<%= link_to 'Back', menus_path %>
+<%= link_to 'Edycja', edit_menu_path(@menu) %> |
+<%= link_to 'Powrót', menus_path %>
