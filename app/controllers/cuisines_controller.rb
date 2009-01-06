@@ -44,7 +44,7 @@ class CuisinesController < ApplicationController
 
     respond_to do |format|
       if @cuisine.save
-        flash[:notice] = 'Rodzaj kuchnii zostaĹ dodany pomyĹlnie.'
+        flash[:notice] = 'Rodzaj kuchnii został dodany pomyślnie.'
         format.html { redirect_to(@cuisine) }
         format.xml  { render :xml => @cuisine, :status => :created, :location => @cuisine }
       else
@@ -61,7 +61,7 @@ class CuisinesController < ApplicationController
 
     respond_to do |format|
       if @cuisine.update_attributes(params[:cuisine])
-        flash[:notice] = 'Rodzaj kuchnii zostaĹ zaaktualizowany pomyĹlnie.'
+        flash[:notice] = 'Rodzaj kuchnii został zaaktualizowany pomyślnie.'
         format.html { redirect_to(@cuisine) }
         format.xml  { head :ok }
       else

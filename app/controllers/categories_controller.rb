@@ -44,7 +44,7 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       if @category.save
-        flash[:notice] = 'Kategoria zostaĹa dodana pomyĹlnie.'
+        flash[:notice] = 'Kategoria została dodana pomyślnie.'
         format.html { redirect_to(@category) }
         format.xml  { render :xml => @category, :status => :created, :location => @category }
       else

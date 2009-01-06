@@ -44,7 +44,7 @@ class MealsController < ApplicationController
 
     respond_to do |format|
       if @meal.save
-        flash[:notice] = 'PosiĹek zostaĹ utworzony pomyĹlnie.'
+        flash[:notice] = 'Posiłek został utworzony pomyślnie.'
         format.html { redirect_to(@meal) }
         format.xml  { render :xml => @meal, :status => :created, :location => @meal }
       else
@@ -61,7 +61,7 @@ class MealsController < ApplicationController
 
     respond_to do |format|
       if @meal.update_attributes(params[:meal])
-        flash[:notice] = 'PosiĹek zostaĹ zaaktualizowany pomyĹlnie.'
+        flash[:notice] = 'Posiłek został zaaktualizowany pomyślnie.'
         format.html { redirect_to(@meal) }
         format.xml  { head :ok }
       else

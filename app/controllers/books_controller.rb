@@ -24,7 +24,7 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @books.length == 0 && @book.save
-        flash[:notice] = 'Rezerwacja przebiegĹa pomyślnie.'
+        flash[:notice] = 'Rezerwacja przebiegła pomyślnie.'
         format.html { redirect_to(:controller => "restaurants", :action => "book", :id => @restaurant.id, "date" => params[:date], "time" => params[:time]) }
         format.xml  { render :xml => @book, :status => :created, :location => @book }
       else

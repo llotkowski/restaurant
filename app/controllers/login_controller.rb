@@ -9,8 +9,10 @@ class LoginController < ApplicationController
       else
         session[:user] = user.id
         if params[:layout].to_s == 'restaurants'
+          flash[:notice] = 'Witamy w systemie.'
           redirect_to :action => 'book', :controller => 'restaurants', :id => params[:id]
         else
+          flash[:notice] = 'Witamy w systemie.'
           redirect_to :action => 'main', :controller => 'welcome'
         end
       end
