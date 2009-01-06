@@ -8,9 +8,9 @@
       <% @count = @count + 1 %>
       <td width="50%">
         <div style="float: left; padding-right: 12px;">
-          <%= image_tag restaurant.photo.url(:thumb), :class => 'image_border_menu' %>
+          <%= link_to image_tag(restaurant.photo.url(:thumb), :class => 'image_border_menu'), restaurant_path(restaurant) %>
         </div>
-        <div><b><%=h restaurant.name %></b><br />
+        <div><b><%= link_to restaurant.name, restaurant_path(restaurant) %></b><br />
           <%=h restaurant.address %><br />
           Telefon: <%=h restaurant.phone %><br/>
           Kuchnia: <%=h restaurant.cuisine.name %><br/>
