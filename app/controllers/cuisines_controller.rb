@@ -45,7 +45,7 @@ class CuisinesController < ApplicationController
     respond_to do |format|
       if @cuisine.save
         flash[:notice] = 'Rodzaj kuchnii został dodany pomyślnie.'
-        format.html { redirect_to(@cuisine) }
+        format.html { redirect_to(cuisines_url) }
         format.xml  { render :xml => @cuisine, :status => :created, :location => @cuisine }
       else
         format.html { render :action => "new" }
