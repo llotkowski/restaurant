@@ -3,15 +3,14 @@
 
   <ul>
     <% for category in @category_list %>
-
       <li style="padding-top: 5px; font-size: 12px; font-weight: bold;"><%= link_to Category.find(category.category_id).name, {:controller => "restaurants", :action => "menu", :id => @restaurant.id, :category => category.category_id}, :class => "no_underline" %></li>
-
     <% end %>
   </ul>
 
-  <div style="padding-left: 30px; font-size: 11px;">
-    <%= link_to image_tag("../images/signs/add.png", :class => "icon"), {:controller => "restaurants", :action => "add_menu_to_restaurant", :id => @restaurant.id} %> <%= link_to 'Dodaj pozycję menu', {:controller => "restaurants", :action => "add_menu_to_restaurant", :id => @restaurant.id} %>
-  </div>
+  <br/>
+  <ul>
+     <li style="padding-top: 5px; font-size: 12px; font-weight: bold;"><%= link_to 'Dodaj pozycję menu', {:controller => "restaurants", :action => "add_menu_to_restaurant", :id => @restaurant.id}, :class => "add_menu" %></li>
+  </ul>
 
 </div><!-- end specials -->
 
