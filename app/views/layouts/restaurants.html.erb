@@ -19,8 +19,10 @@
 
   </head>
   <body>
+     
     <div id="wrapper">
       <div id="header">
+       <div class="header_restaurant_type"><img src="../../images/cuisines/<%= @restaurant.cuisine.name %>.jpg"></img></div>
         <h1 class="mj_title"><center><%= @restaurant.name%></center></h1>
         <ul id="nav">
           <li><%= link_to 'HOME', {:controller => "restaurants", :action => "home", :id => @restaurant.id} %>  &nbsp;|&nbsp;</li>

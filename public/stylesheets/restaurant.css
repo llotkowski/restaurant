@@ -123,10 +123,18 @@ a:hover {
 /* header */
 
 #header {
-	background: url(../images/restaurant/header.jpg) top left no-repeat;
 	height: 299px; width: 100%;
 	margin: 0;
 	border-bottom: 1px solid white;
+}
+
+.header_restaurant_type {
+    width: 290px;
+	height: 299px;
+	margin: 0;
+	border-bottom: 1px solid white;
+    border-right: 1px solid white;
+    float: left;
 }
 
 #header h1 {
