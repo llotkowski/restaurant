@@ -2,6 +2,7 @@
   <b>Nazwa:</b>
   <%=h @category.name %>
 </p>
+<br/>
 
 <%= link_to image_tag("../images/signs/edit.png", :title => "Edycja", :class => "icon"), edit_category_path(@category) %> &nbsp; |
 <%= link_to image_tag("../images/signs/back.png", :title => "Wstecz", :class => "icon"), categories_path %> <%=  link_to "Powrót", categories_path%>

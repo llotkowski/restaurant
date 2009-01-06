@@ -1,15 +1,16 @@
-<h1>Lista kategorii posiłków</h1>
+<h2>Lista kategorii posiłków</h2>
 
-<table>
+<br/>
+<table style="width: 200px;"  cellpadding="0" cellspacing="0">
   <tr>
-    <th>Nazwa</th>
+    <th colspan="4" style="text-align: left;">Nazwa</th>
   </tr>
 
   <% for category in @categories %>
     <tr>
       <td><%=h category.name %></td>
       <td>
-        <%= link_to image_tag("../images/signs/show.png", :title => "Szczegóły", :class => "icon"),category %>
+        <%= link_to image_tag("../images/signs/show.png", :title => "Szczegóły", :class => "icon"),category %> &nbsp;
         <%= link_to image_tag("../images/signs/edit.png", :title => "Edycja", :class => "icon"), edit_category_path(category) %> &nbsp;
         <%= link_to image_tag("../images/signs/delete.png", :title => "Usuń", :class => "icon"), category, :confirm => 'Na pewno?', :method => :delete %>
       </td>

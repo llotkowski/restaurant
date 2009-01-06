@@ -1,13 +1,16 @@
 <center>
   <h1><%= @title %></h1>
   <br/>
+
   <% if @restaurants.length == 0 %>
-  <h3>Brak restauracji spełniających podane kryteria</h3>
-  <br/>
-  <a href="/welcome/main">Powrót do strony głównej</a>
+    <h3>Brak restauracji spełniających podane kryteria</h3>
+    <br/>
+    <a href="/welcome/main">Powrót do strony głównej</a>
   <% else %>
-  <%= @map.div(:width => 700, :height => 600, :class => 'map') %>
-  <br/>
-  <br/>
+    <div class="image_border_map">
+      <%= @map.div(:width => 700, :height => 600, :class => 'map') %>
+    </div>
+    <br/>
   <% end %>
+
 </center>
