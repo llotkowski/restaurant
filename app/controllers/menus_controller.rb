@@ -48,10 +48,10 @@ class MenusController < ApplicationController
       @menu.restaurant_id = @restaurant.id
       puts "PARAMS ID = " + params[:restaurant_id].to_s
     end
-    
+
     respond_to do |format|
       if @menu.save
-        flash[:notice] = 'Menu was successfully created.'
+        flash[:notice] = 'Menu zostaĹo utworzone pomyĹlnie.'
         if(params[:restaurant_id] == nil)
           format.html { redirect_to(@menu) }
           format.xml  { render :xml => @menu, :status => :created, :location => @menu }
@@ -73,7 +73,7 @@ class MenusController < ApplicationController
 
     respond_to do |format|
       if @menu.update_attributes(params[:menu])
-        flash[:notice] = 'Menu was successfully updated.'
+        flash[:notice] = 'Menu zostaĹo zaaktualizowane pomyĹlnie.'
         format.html { redirect_to(@menu) }
         format.xml  { head :ok }
       else

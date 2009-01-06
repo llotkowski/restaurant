@@ -57,7 +57,7 @@ class RestaurantsController < ApplicationController
 
     respond_to do |format|
       if @restaurant.save
-        flash[:notice] = 'Restaurant was successfully created.'
+        flash[:notice] = 'Restauracja zostaĹa utworzona pomyĹlnie.'
         format.html { redirect_to(@restaurant) }
         format.xml  { render :xml => @restaurant, :status => :created, :location => @restaurant }
       else
@@ -74,7 +74,7 @@ class RestaurantsController < ApplicationController
 
     respond_to do |format|
       if @restaurant.update_attributes(params[:restaurant])
-        flash[:notice] = 'Restaurant was successfully updated.'
+        flash[:notice] = 'Restauracja zostaĹa zaaktualizowana pomyĹlnie.'
         format.html { redirect_to(@restaurant) }
         format.xml  { head :ok }
       else

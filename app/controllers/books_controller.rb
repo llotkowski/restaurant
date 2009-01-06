@@ -1,25 +1,4 @@
 class BooksController < ApplicationController
-  # GET /books
-  # GET /books.xml
-  def index
-    @books = Book.find(:all)
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @books }
-    end
-  end
-
-  # GET /books/1
-  # GET /books/1.xml
-  def show
-    @book = Book.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @book }
-    end
-  end
 
   # GET /books/new
   # GET /books/new.xml
@@ -32,13 +11,7 @@ class BooksController < ApplicationController
     end
   end
 
-  # GET /books/1/edit
-  def edit
-    @book = Book.find(params[:id])
-  end
-
-  # POST /books
-  # POST /books.xml
+  # Zapis rezerwacji.
   def create
     @book = Book.new(params[:book])
     date = DateTime.parse(params[:date_picker].to_s+" "+params[:time_picker].to_s)
@@ -51,7 +24,7 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @books.length == 0 && @book.save
-        flash[:notice] = 'Rezerwacja przebiegła pomyślnie.'
+        flash[:notice] = 'Rezerwacja przebiegĹa pomyślnie.'
         format.html { redirect_to(:controller => "restaurants", :action => "book", :id => @restaurant.id, "date" => params[:date], "time" => params[:time]) }
         format.xml  { render :xml => @book, :status => :created, :location => @book }
       else
@@ -59,35 +32,6 @@ class BooksController < ApplicationController
         format.html { redirect_to(:controller => "restaurants", :action => "book", :id => @restaurant.id) }
         format.xml  { render :xml => @book.errors, :status => :unprocessable_entity }
       end
-    end
-  end
-
-  # PUT /books/1
-  # PUT /books/1.xml
-  def update
-    @book = Book.find(params[:id])
-
-    respond_to do |format|
-      if @book.update_attributes(params[:book])
-        flash[:notice] = 'Book was successfully updated.'
-        format.html { redirect_to(@book) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @book.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /books/1
-  # DELETE /books/1.xml
-  def destroy
-    @book = Book.find(params[:id])
-    @book.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(books_url) }
-      format.xml  { head :ok }
     end
   end
 end
