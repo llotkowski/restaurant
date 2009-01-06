@@ -1,4 +1,4 @@
-<h1>Użytkownicy</h1>
+<h2>Użytkownicy</h2>
 <br />
 
 <table class="mj_data_table">
@@ -7,6 +7,7 @@
     <th>Imię</th>
     <th>Nazwisko</th>
     <th>Email</th>
+    <th>Admin</th>
     <th colspan="2">Opcje</th>
   </tr>
 
@@ -15,7 +16,8 @@
     <td><%=h user.login %></td>
     <td><%=h user.name %></td>
     <td><%=h user.surname %></td>
-    <td><%=h user.email %></td>
+    <td><%= mail_to user.email %></td>
+    <td><%=h user.isadmin %></td>
     <td width="10"><%= link_to 'Edycja', edit_user_path(user) %></td>
     <td width="10"><%= link_to 'Usuń', user, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

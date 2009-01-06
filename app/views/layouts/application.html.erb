@@ -15,62 +15,62 @@
 
     <% if @map.nil? %>
     <% else %>
-     <%= @map.to_html %>
+      <%= @map.to_html %>
     <%  end    %>
     <script>
       $(document).ready(function(){
-      <% if flash[:notice] %>
+    <% if flash[:notice] %>
       document.getElementById('info_dialog').style.display = '';
       $("#info_dialog").dialog({
-      modal:true,
-      resizable:false
+        modal:true,
+        resizable:false
       });
       $('#b_closer').click(function(){
-      $('#info_dialog').dialog('close');
+        $('#info_dialog').dialog('close');
       });
-      <% end %>
-      })
+  <% end %>
+  })
     </script>
   </head>
   <body>
-  <div id="wrapper">
-    <div style="position : absolute; top : 10px; right : 10px;">
-      <% if session[:user]%>
-      <a href="/login/logout">Wyloguj się</a>
-      <% end %>
-    </div>
-    <div id="logo">
-      <h1>Bistro Ministro</h1>
-      <p>Najlepsza sieć restauracji</p>
-    </div>
-    <div id="nav">
-      <div id="nav-left">
-        <ul>
-          <li><a href="/welcome/main">Strona główna</a></li>
-          <li class="orange"><a href="/welcome/show">Mapa restauracji</a></li>
-        </ul>
+    <div id="wrapper">
+      <div style="position : absolute; top : 10px; right : 10px;">
+        <% if session[:user]%>
+          <a href="/login/logout">Wyloguj się</a>
+        <% end %>
       </div>
-      <div id="nav-right">
-        <ul>
-          <li><%= @user_link%></li>
-          <li><a href="/meals">Posiłki</a></li>
-          <li><a href="/restaurants/">Restauracje</a></li>
-          <li><a href="/welcome/about">O nas</a></li>
-        </ul>
+      <div id="logo">
+        <h1>Bistro Ministro</h1>
+        <p>Najlepsza sieć restauracji</p>
       </div>
-    </div>
-    <div id="body">
-      <div id="info_dialog" title="Informacja" style="display : none; font-size : small">
-	<p><%= flash[:notice] %></p>
-	<br/>
-	<button id="b_closer" class="ui-state-default ui-corner-all" type="button"> Ok </button>
+      <div id="nav">
+        <div id="nav-left">
+          <ul>
+            <li><a href="/welcome/main">Strona główna</a></li>
+            <li class="orange"><a href="/welcome/show">Mapa restauracji</a></li>
+          </ul>
+        </div>
+        <div id="nav-right">
+          <ul>
+            <li><%= @user_link%></li>
+            <li><a href="/meals">Posiłki</a></li>
+            <li><a href="/restaurants/">Restauracje</a></li>
+            <li><a href="/welcome/about">O nas</a></li>
+          </ul>
+        </div>
       </div>
-      <%= yield  %>
-      <br/>
-      <br/>
-      <div class="clear"> </div>
-      <div id="footer">
-        <!--<ul>
+      <div id="body">
+        <div id="info_dialog" title="Informacja" style="display : none; font-size : small">
+          <p><%= flash[:notice] %></p>
+          <br/>
+          <button id="b_closer" class="ui-state-default ui-corner-all" type="button"> Ok </button>
+        </div>
+        <%= yield  %>
+        <br/>
+        <br/>
+        <div class="clear"> </div>
+        <div id="footer">
+          <!--<ul>
           <li><a href="http://www.freewebsitetemplates.com">Home</a> | </li>
           <li><a href="http://www.freewebsitetemplates.com">About Us</a> | </li>
           <li><a href="http://www.freewebsitetemplates.com">Menu</a> | </li>
@@ -78,9 +78,9 @@
           <li><a href="http://www.freewebsitetemplates.com">Special offer</a> | </li>
           <li><a href="http://www.freewebsitetemplates.com">Contact</a></li>
         </ul>-->
-        <p>copyright &copy; Bistro Ministro</p>
+          <p>copyright &copy; Bistro Ministro</p>
+        </div>
       </div>
     </div>
-  </div>
-</body>
+  </body>
 </html>
