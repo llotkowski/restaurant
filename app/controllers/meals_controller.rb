@@ -3,6 +3,7 @@ class MealsController < ApplicationController
   # GET /meals.xml
   def index
     @meals = Meal.find(:all)
+    @is_admin = is_admin()
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +15,7 @@ class MealsController < ApplicationController
   # GET /meals/1.xml
   def show
     @meal = Meal.find(params[:id])
+    @id_admin = is_admin()
 
     respond_to do |format|
       format.html # show.html.erb

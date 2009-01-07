@@ -20,13 +20,16 @@
       </td>
       <td width="80px;">
         <%= link_to image_tag("../images/signs/show.png", :class => "icon"), meal %>
+	<% if @is_admin == true %>
         <%= link_to image_tag("../images/signs/edit.png", :class => "icon"), edit_meal_path(meal) %>
         <%= link_to image_tag("../images/signs/delete.png", :class => "icon"),  meal, :confirm => 'Czy aby na pewno?', :method => :delete %>
+	<% end %>
       </td>
     </tr>
   <% end %>
 </table>
 
 <br />
-
+<% if @is_admin == true %>
 <%= image_tag("../images/signs/add.png", :class => "icon") %> <%= link_to 'Dodaj posiłek', new_meal_path %>
+<% end %>

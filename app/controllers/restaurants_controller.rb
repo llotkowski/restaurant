@@ -8,6 +8,7 @@ class RestaurantsController < ApplicationController
   def index
     @restaurants = Restaurant.find(:all)
     @is_admin = is_admin()
+
     respond_to do |format|
       format.html { render :layout => 'application' } # index.html.erb
       format.xml  { render :xml => @restaurants }
@@ -18,6 +19,7 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/1.xml
   def show
     @restaurant = Restaurant.find(params[:id])
+    @is_admin = is_admin()
 
     @map = GMap.new("map_div")
     loc = GeoKit::Geocoders::GoogleGeocoder.geocode(@restaurant.address)
@@ -109,6 +111,7 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/menu/1
   def menu
     @restaurant = Restaurant.find(params[:id])
+    @is_admin = is_admin()
 
     # Pobranie listy kategori do wyświetlenia w Menu danej restauracji (tylko te kategorie w których są przypisane dania)
     @category_list = Menu.find(:all, :select => 'DISTINCT category_id', :conditions => ['restaurant_id = ?', @restaurant.id], :order => 'category_id asc')
