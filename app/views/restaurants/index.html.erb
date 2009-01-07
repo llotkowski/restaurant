@@ -33,5 +33,6 @@
 </table>
 
 <br />
-
+<% if @is_admin %>
 <%= link_to image_tag("../images/signs/add.png", :class => "icon") %> <%= link_to 'Dodaj restaurację', new_restaurant_path %>
+<% end %>

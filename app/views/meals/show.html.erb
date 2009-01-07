@@ -18,7 +18,9 @@
         </div>
       </td>
       <td width="80px;">
-        <%= link_to image_tag("../images/signs/edit.png", :class => "icon"), edit_meal_path(@meal) %>
+        <% if @is_admin == true %>
+	<%= link_to image_tag("../images/signs/edit.png", :class => "icon"), edit_meal_path(@meal) %>
+      <% end %>
       </td>
     </tr>
 </table>

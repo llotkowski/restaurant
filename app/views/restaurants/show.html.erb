@@ -34,8 +34,10 @@
   <p>
     <%= link_to image_tag("../images/signs/show.png", :title => "Szczegóły", :class => "icon"), restaurant_path(@restaurant) %> &nbsp;
     <%= link_to image_tag("../images/signs/www.png", :title => "Strona WWW", :class => "icon"), {:controller => "restaurants", :action => "home", :id => @restaurant.id} %> &nbsp;
+<% if @is_admin == true %>
     <%= link_to image_tag("../images/signs/edit.png", :title => "Edycja", :class => "icon"), edit_restaurant_path(@restaurant) %> &nbsp;
     <%= link_to image_tag("../images/signs/delete.png", :title => "Usuń", :class => "icon"), @restaurant, :confirm => 'Na pewno?', :method => :delete %>
+<% end %>
   </p>
 </div>
 
