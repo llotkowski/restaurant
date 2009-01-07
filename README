@@ -1,12 +1,15 @@
- Rezerwacja restauracji, git://github.com/llotkowski/restaurant.git
+Rezerwacja restauracji, git://github.com/llotkowski/restaurant.git
 
-Autorzy: K. Lotkowski (kierownik), £. Lotkowski, M. Juñski.
+Autorzy: K. Lotkowski (kierownik), Å. Lotkowski, M. JuÅ„ski.
 
-O projekcie: Chcesz zarezerwowaæ restauracjê na przyjêcie bez ruszania siê z domu? Zrób to przez Internet.
-Aplikacja bêdzie umo¿liwia³a wyszukiwanie zdefiniowanych restauracji na mapie, dostêp do danych kontaktowych oraz menu.
-Lokale bêd± mog³y zdefiniowaæ menu oraz uk³ad stolików. Zalogowana osoba bêdzie mog³a zarezerwowaæ stolik.
+O projekcie: Chcesz zarezerwowaÄ‡ restauracjÄ™ na przyjÄ™cie bez ruszania siÄ™ z domu?
+ZrÃ³b to przez Internet.
+Aplikacja bÄ™dzie umoÅ¼liwiaÅ‚a wyszukiwanie zdefiniowanych restauracji na mapie,
+dostÄ™p do danych kontaktowych oraz menu.
+Lokale bÄ™dÄ… mogÅ‚y zdefiniowaÄ‡ menu oraz ukÅ‚ad stolikÃ³w.
+Zalogowana osoba bÄ™dzie mogÅ‚a zarezerwowaÄ‡ stolik.
 Czyli kompleksowa rezerwacja sali w jednym miejscu.
 
-Wykorzystane narzêdzia: Google Maps i jQuery
+Wykorzystane narzÄ™dzia: Google Maps i jQuery
 
 Pluginy, gemy: GeoKit, ym4r, Paperclip.
