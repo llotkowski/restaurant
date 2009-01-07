@@ -1,6 +1,5 @@
 load 'deploy' if respond_to?(:namespace) # cap2 differentiator
 Dir['vendor/plugins/*/recipes/*.rb'].each { |plugin| load(plugin) }
-load 'config/deploy'
 
 load 'config/deploy'    # automatycznie wygenerowany wiersz
-load 'lib/cap_recipes'  # zostan± opisane poni¿ej
+load 'lib/cap_recipes'  # definicja bazy danych i pliku mongrela

@@ -1,4 +1,4 @@
-set :user, "mjunski"
+set :user, "wbzyl"
 
 # If you aren't deploying to /u/apps/#{application}
 # on the target servers (which is the default),
@@ -6,7 +6,7 @@ set :user, "mjunski"
 # via the :deploy_to variable:
 
 set :application, "restaurant"
-set :deploy_to, "/home/inf/mjunski/www/#{application}"
+set :deploy_to, "/home/pracown/wbzyl/www/#{application}"
 
 # --- git
 
