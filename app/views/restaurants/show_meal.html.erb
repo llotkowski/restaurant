@@ -10,9 +10,11 @@
   </ul>
 
   <br/>
+  <% if @is_admin %>
   <ul>
      <li style="padding-top: 5px; font-size: 12px; font-weight: bold;"><%= link_to 'Dodaj pozycję menu', {:controller => "restaurants", :action => "add_menu_to_restaurant", :id => @restaurant.id}, :class => "add_menu" %></li>
   </ul>
+  <% end %>
 
 </div><!-- end specials -->
 
@@ -46,7 +48,7 @@
             <b>Cena:</b> <%=h @menu_meal.price %> zł
           </div>
         </td>
-       
+
       </tr>
     </table>
 

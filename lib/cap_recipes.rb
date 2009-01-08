@@ -6,6 +6,14 @@ namespace :deploy do
     run "ln -nfs #{shared_path}/doc #{release_path}/public/doc"
   end
 
+  desc 'Zainstaluj geokit i ym4r'
+  task :install_gems, :roles => :app do
+    # Add all gems required by your application here
+    run "gem sources -a http://gems.github.com"
+    run "gem install andre-geokit"
+    run "gem install ym4r"
+  end
+
   desc "Copy database.yml file and move it to the 'shared_path' directory."
    task :database, :role => :web do
      database_conf = <<-CMD
@@ -47,7 +55,8 @@ production:
    end
 
 end
-  # -- run hooks
+  # -- run hook
+after 'deploy:update_code', "deploy:install_gems"
 after 'deploy:update_code', "deploy:symlink_shared"
 #after "deploy:update_code", "mongrel:cluster:configure"
 after 'deploy:update_code', "deploy:database"

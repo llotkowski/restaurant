@@ -199,6 +199,7 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/show_meal/1
   def show_meal
     @restaurant = Restaurant.find(params[:id])
+    @is_admin = is_admin()
 
     # Pobranie listy kategori do wyświetlenia w Menu danej restauracji (tylko te kategorie w których są przypisane dania)
     @category_list = Menu.find(:all, :select => 'DISTINCT category_id', :conditions => ['restaurant_id = ?', @restaurant.id], :order => 'category_id asc')
@@ -207,6 +208,7 @@ class RestaurantsController < ApplicationController
   end
 
   def get_meal_of_the_day
+    @is_admin = is_admin()
 
     if(params[:id] != nil)
       @restaurant = Restaurant.find(params[:id])
